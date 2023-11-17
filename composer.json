@@ -1,5 +1,5 @@
 {
-    "name": "Piotr-Kaczmarek/cbrnetheme",
+    "name": "piotr-kaczmarek/cbrnetheme",
     "description": "cbrne wp theme",
     "keywords": ["wordpress", "plugin"],
     "homepage": "https://github.com/Piotr-Kaczmarek/cbrnetheme",
@@ -10,7 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "type": "wordpress-plugin",
+    "type": "wordpress-theme",
     "require": {
       "php": ">=8.0"
     }
