@@ -1,0 +1,17 @@
+{
+    "name": "piotr-kaczmarek/cbrnetheme",
+    "description": "cbrne wp theme",
+    "keywords": ["wordpress", "plugin"],
+    "homepage": "https://github.com/Piotr-Kaczmarek/cbrnetheme",
+    "authors": [
+        {
+            "name": "Piotr Kaczmarek",
+            "email": "piotr@prkropka.pl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "type": "wordpress-theme",
+    "require": {
+      "php": ">=8.0"
+    }
+}
