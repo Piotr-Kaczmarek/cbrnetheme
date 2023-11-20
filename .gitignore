@@ -1,5 +1,6 @@
 templates/
 content/
+vendor/
 move_out.sh
 move_in.sh
 theme_tests.sh

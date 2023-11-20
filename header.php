@@ -26,8 +26,10 @@ namespace Cbrne_Theme;
 
   <?php wp_head(); ?>
 </head>
-
-<body <?php body_class('no-js'); ?>>
+<?php
+  $custom_class = (!isset(get_option('cbrne_custom_option_group')['cbrne_change_theme_colors']) ? 'color': 'no-color');
+?>
+<body <?php body_class('no-js'.' '.$custom_class); ?>>
   <a class="skip-link screen-reader-text js-trigger" href="#content"><?php echo esc_html(get_default_localization('Skip to content')); ?></a>
 
   <?php wp_body_open(); ?>
