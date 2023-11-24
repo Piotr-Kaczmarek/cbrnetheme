@@ -1,0 +1,14 @@
+// stylelint-disable a11y/no-display-none, plugin/file-max-lines
+// Header language menu 
+
+.language-switcher{
+    .menu-items{
+        gap: 1rem;
+    }
+    .menu-item{
+        padding: 0;
+        &:not(:last-child)::after{
+            content: " |";
+        }
+    }
+}
