@@ -226,4 +226,8 @@ function my_msls_output_get_tags($tags)
     );
 }
 add_filter('msls_output_get_tags', __NAMESPACE__ .'\my_msls_output_get_tags');
+<<<<<<< Updated upstream
 >>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
+=======
+>>>>>>> 9e1b507 (v0.0.66)
+>>>>>>> Stashed changes

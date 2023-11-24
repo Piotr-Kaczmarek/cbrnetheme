@@ -40,7 +40,11 @@ namespace Cbrne_Theme;
 <<<<<<< HEAD
 =======
       <?php get_template_part('template-parts/header/language-switcher');?>
+<<<<<<< Updated upstream
 >>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
+=======
+>>>>>>> 9e1b507 (v0.0.66)
+>>>>>>> Stashed changes
       <?php get_template_part('template-parts/header/navigation'); ?>
     </header>
 

@@ -44,7 +44,11 @@ function air_helper_clear_admin_dashboard()
 <<<<<<< HEAD
 =======
       'nex_forms_widget', // nex forms plugin
+<<<<<<< Updated upstream
 >>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
+=======
+>>>>>>> 9e1b507 (v0.0.66)
+>>>>>>> Stashed changes
       'yith_dashboard_products_news', // all YITH plugins
       'yith_dashboard_blog_news', // all YITH plugins
         ],
