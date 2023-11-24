@@ -3,7 +3,11 @@
 // with correct paths
 
 // Variable fonts
+<<<<<<< HEAD
 @include variablefont('Inter', '../../fonts/inter-variablefont', 1 999);
+=======
+@include variablefont('Open Sans', '../../fonts/opensans-variablefont', 1 999);
+>>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
 
 // Regular fonts
 // @include font('Inter', '../../fonts/inter-400', 400);

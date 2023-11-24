@@ -41,6 +41,10 @@ function air_helper_clear_admin_dashboard()
             'rg_forms_dashboard', // gravity forms
       'dashboard_rediscache',
       'dashboard_php_nag',
+<<<<<<< HEAD
+=======
+      'nex_forms_widget', // nex forms plugin
+>>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
       'yith_dashboard_products_news', // all YITH plugins
       'yith_dashboard_blog_news', // all YITH plugins
         ],

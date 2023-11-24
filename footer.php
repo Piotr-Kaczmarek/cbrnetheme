@@ -20,7 +20,11 @@ namespace Cbrne_Theme;
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer">
+<<<<<<< HEAD
 
+=======
+  <?php get_template_part('template-parts/footer/footer-nav'); ?>
+>>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
   <div class="site-info">
     <span class="theme-info">
     </span>

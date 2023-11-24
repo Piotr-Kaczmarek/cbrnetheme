@@ -32,6 +32,38 @@
   --color-sub-menu-mobile: rgb(255 255 255 / .8);
 }
 
+<<<<<<< HEAD
+=======
+body.no-color{
+  // Site-header and general mobile navigation elements
+  --color-background-nav-mobile-header: var(--color-main);
+  --color-background-nav-mobile-header-active: var(--color-main);
+  --width-navigation: min(40rem, 100vw);
+
+  // Affecting to both main and sub-levels
+  --color-background-menu-items: var(--color-main);
+  --color-background-menu-items-active: var(--color-main);
+  --color-separator-nav-mobile: rgb(255 255 255 / .1);
+  --color-current-menu-item: var(--color-white);
+  --color-dropdown-toggle-mobile: var(--color-white);
+
+  // Main level items on mobile
+  --font-size-main-level-mobile: 1.5rem;
+  --font-weight-main-level-mobile: 600;
+  --padding-main-level-vertical-mobile: 1.2rem;
+  --color-main-level-menu-item-hover-focus-mobile: var(--color-white);
+  --color-main-level-menu-item-mobile: var(--color-white);
+
+  // Sub-menu items on mobile
+  --font-size-sub-menu-mobile: 1.5rem;
+  --font-weight-sub-menu-mobile: 600;
+  --margin-left-sub-menu: 1rem;
+  --padding-sub-menu-vertical-mobile: .8rem;
+  --padding-sub-menu-horizontal-mobile: 2.5rem;
+  --color-sub-menu-mobile: rgb(255 255 255 / .8);
+}
+
+>>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
 // Navigation core functionality
 @media only screen and (max-width: $width-max-mobile) {
   // Functionality needs display: none here for visual reasons

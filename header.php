@@ -37,6 +37,10 @@ namespace Cbrne_Theme;
 
     <header class="site-header">
       <?php get_template_part('template-parts/header/branding'); ?>
+<<<<<<< HEAD
+=======
+      <?php get_template_part('template-parts/header/language-switcher');?>
+>>>>>>> 9e1b5073a10c9869acaeb4aed1205b2aeb9ea59e
       <?php get_template_part('template-parts/header/navigation'); ?>
     </header>
 
