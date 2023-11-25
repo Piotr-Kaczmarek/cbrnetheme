@@ -15,6 +15,37 @@
   --color-separator-nav-mobile: rgb(255 255 255 / .1);
   --color-current-menu-item: var(--color-white);
   --color-dropdown-toggle-mobile: var(--color-white);
+  --color-dropdown-toggle-mobile-footer: var(--color-black);
+
+  // Main level items on mobile
+  --font-size-main-level-mobile: 1.5rem;
+  --font-weight-main-level-mobile: 600;
+  --padding-main-level-vertical-mobile: 1.2rem;
+  --color-main-level-menu-item-hover-focus-mobile: var(--color-white);
+  --color-main-level-menu-item-mobile: var(--color-white);
+
+  // Sub-menu items on mobile
+  --font-size-sub-menu-mobile: 1.5rem;
+  --font-weight-sub-menu-mobile: 600;
+  --margin-left-sub-menu: 1rem;
+  --padding-sub-menu-vertical-mobile: .8rem;
+  --padding-sub-menu-horizontal-mobile: 2.5rem;
+  --color-sub-menu-mobile: rgb(255 255 255 / .8);
+}
+
+body.no-color{
+  // Site-header and general mobile navigation elements
+  --color-background-nav-mobile-header: var(--color-main);
+  --color-background-nav-mobile-header-active: var(--color-main);
+  --width-navigation: min(40rem, 100vw);
+
+  // Affecting to both main and sub-levels
+  --color-background-menu-items: var(--color-main);
+  --color-background-menu-items-active: var(--color-main);
+  --color-separator-nav-mobile: rgb(255 255 255 / .1);
+  --color-current-menu-item: var(--color-white);
+  --color-dropdown-toggle-mobile: var(--color-white);
+  --color-dropdown-toggle-mobile-footer: var(--color-black);
 
   // Main level items on mobile
   --font-size-main-level-mobile: 1.5rem;
@@ -230,5 +261,25 @@
   .js-nav-active .site-main,
   .js-nav-active .site-footer {
     transform: translate3d(calc(var(--width-navigation) * -1), 0, 0);
+  }
+
+  .language-switcher{
+    z-index: 6;
+    position: absolute;
+    top: 90vh;
+    padding: 0;
+    height: auto; 
+    ul{
+      padding-inline-start: 0;
+    }
+    .menu-items-language{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      & > li > a{
+        border-top: none;
+      }
+    }
   }
 }

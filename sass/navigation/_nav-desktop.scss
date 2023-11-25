@@ -4,8 +4,8 @@
 :root {
 
   // Affecting to both main and sub-levels
-  --color-dropdown-toggle: var(--color-valhalla);
-  --color-current: var(--color-link-text);
+  --color-dropdown-toggle: var(--color-white);
+  --color-current: var(--color-blue-chalk);
   --dropdown-toggle-size: 1.2rem;
 
   // Main level items on desktop
@@ -13,8 +13,8 @@
   --font-weight-main-level: var(--font-weight-bold);
   --padding-main-level-horizontal: 0;
   --padding-main-level-vertical: .6rem;
-  --color-main-level: var(--color-black);
-  --color-hover-main-level: var(--color-link-text);
+  --color-main-level: var(--color-white);
+  --color-hover-main-level: var(--color-white);
   --gap-between-dropdown-toggle: 1.5rem;
   --gap-main-level-horizontal: 2.5rem;
 
@@ -31,6 +31,40 @@
   --gap-dropdown: 1rem;
 }
 
+body.no-color {
+
+  // Affecting to both main and sub-levels
+  --color-dropdown-toggle: var(--color-white);
+  --color-current: var(--color-blue-chalk);
+  --dropdown-toggle-size: 1.2rem;
+
+  // Main level items on desktop
+  --font-size-main-level: var(--font-size-16);
+  --font-weight-main-level: var(--font-weight-bold);
+  --padding-main-level-horizontal: 0;
+  --padding-main-level-vertical: .6rem;
+  --color-main-level: var(--color-white);
+  --color-hover-main-level: var(--color-link-text);
+  --gap-between-dropdown-toggle: 1.5rem;
+  --gap-main-level-horizontal: 2.5rem;
+
+  // Sub menu items on desktop
+  --font-size-sub-menu: var(--font-size-16);
+  --font-weight-sub-menu: var(--font-weight-regular);
+  --padding-sub-menu-vertical: .6rem;
+  --padding-sub-menu-link-vertical: .6rem;
+  --padding-sub-menu-link-horizontal: 1.5rem;
+  --width-sub-menu: 20rem;
+  --color-sub-menu: var(--color-valhalla);
+  --color-hover-sub-menu: var(--color-valhalla);
+  --color-background-sub-menu: var(--color-white);
+  --gap-dropdown: 1rem;
+}
+//
+.site-header{
+  margin-bottom: 5rem;
+}
+
 // General navigation resets
 .site-header ul {
   list-style: none;
@@ -43,9 +77,23 @@
   }
 
   // Navigation wrapper
+  .nav-wrapper{
+    flex-basis: 100%;
+    overflow: visible;
+    width: 100vw;
+    background-color: var(--color-heading);
+    position: absolute;
+    left: 50%;
+    top: 10rem;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
   .nav-primary {
-    padding-bottom: 0;
-    padding-top: 0;
+    display: flex;
+    flex-flow: column;
+    padding: 0 var(--padding-container-horizontal);    
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   // Navigation unordered list wrapper element
@@ -73,6 +121,7 @@
     display: inline-flex;
     font-size: var(--font-size-main-level);
     font-weight: var(--font-weight-main-level);
+    text-transform:uppercase;
     margin-left: 0;
     margin-right: 0;
     padding-bottom: var(--padding-main-level-vertical);
@@ -111,6 +160,7 @@
   .menu-item > a:hover,
   .menu-item > a:focus {
     color: var(--color-hover-main-level);
+    opacity: 0.5;
   }
 
   .menu-item .sub-menu a:hover,
@@ -324,7 +374,15 @@
   .menu-item.menu-item-has-children .menu-item.menu-item-has-children:focus > .dropdown-toggle svg {
     transform: translateY(0%) rotate(90deg);
   }
-
+  // language menu
+  .language-switcher{
+    .menu-item{
+      & > a {
+        color: var(--color-black);
+      }
+    }
+  }
+  
   @media only screen and (max-width: $width-max-mobile) {
     ul li:focus > ul,
     ul li:hover > ul {

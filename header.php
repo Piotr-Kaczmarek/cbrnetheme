@@ -27,7 +27,7 @@ namespace Cbrne_Theme;
   <?php wp_head(); ?>
 </head>
 <?php
-  $custom_class = (!isset(get_option('cbrne_custom_option_group')['cbrne_change_theme_colors']) ? 'color': 'no-color');
+  $custom_class = (empty(get_option('cbrne_change_theme_colors'))) ? 'color': 'no-color';
 ?>
 <body <?php body_class('no-js'.' '.$custom_class); ?>>
   <a class="skip-link screen-reader-text js-trigger" href="#content"><?php echo esc_html(get_default_localization('Skip to content')); ?></a>
@@ -36,7 +36,7 @@ namespace Cbrne_Theme;
   <div id="page" class="site">
 
     <header class="site-header">
-      <?php get_template_part('template-parts/header/branding'); ?>
+      <?php get_template_part('template-parts/header/branding'); ?>     
       <?php get_template_part('template-parts/header/navigation'); ?>
     </header>
 

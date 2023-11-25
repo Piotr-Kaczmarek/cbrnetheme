@@ -3,13 +3,13 @@
 // For AAA: https://www.color-blindness.com/color-name-hue/
 // For AA: https://chir.ag/projects/name-that-color/
 // ------------------------------------------------------
-:root .color{
+:root{
   // Brand color pool
   --color-black: #222;
   --color-black-rock: #2b303c;
   --color-blue-chalk: #ece6f2;
   --color-east-bay: #545773;
-  --color-pattens-blue: #eaf1f8;
+  --color-pattens-blue: #dbe9f7;
   --color-science-blue: #0049d1;
   --color-scorpion: #5f5f5f;
   --color-valhalla: #2a2d3e;
@@ -24,8 +24,9 @@
   --color-second: var(--color-red);
   --color-paragraph: var(--color-east-bay);
   --color-special-one: var(--color-green);
-  // Modern link
-  --color-link-text: var(--color-science-blue);
+  --color-alert: var(--color-red);
+   // Modern link
+  --color-link-text: var(--color-black-rock);
   --color-link-text-hover: var(--color-black);
 
   // Element states
@@ -33,10 +34,10 @@
   --color-success: #21aa14;
 }
 
-:root .no-color{
+body.no-color{
   // Brand color pool
   --color-black: #222;
-  --color-black-rock: #2b303c;
+  --color-black-rock: #777;
   --color-blue-chalk: #ece6f2;
   --color-east-bay: #6f6f6f;
   --color-pattens-blue: #eaf1f8;

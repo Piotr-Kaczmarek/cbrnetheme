@@ -6,7 +6,7 @@
     margin-bottom: 0;
   }
 
-  button,
+  button:not(.dropdown-toggle),
   .button,
   input[type="reset"],
   input[type="submit"],

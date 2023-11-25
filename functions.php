@@ -208,3 +208,19 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
+//
+// Multisite LS menu tags change
+/**
+ * @param array $tags
+ * @return array
+ */
+function my_msls_output_get_tags($tags)
+{
+    return array(
+        'before_item'   => '<li class="menu-item menu-item-language">',
+        'after_item'    => '</li>',
+        'before_output' => '<ul class="menu-items menu-items-language">',
+        'after_output'  => '</ul>',
+    );
+}
+add_filter('msls_output_get_tags', __NAMESPACE__ .'\my_msls_output_get_tags');
