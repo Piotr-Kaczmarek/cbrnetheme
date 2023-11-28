@@ -25,6 +25,9 @@
   --color-paragraph: var(--color-east-bay);
   --color-special-one: var(--color-green);
   --color-alert: var(--color-red);
+  --color-heading-background: var(--color-valhalla);
+  --color-page-accent: var(--color-heading);
+  --color-page-accent-font: var(--color-white);  
    // Modern link
   --color-link-text: var(--color-black-rock);
   --color-link-text-hover: var(--color-black);
@@ -54,6 +57,9 @@ body.no-color{
   --color-main: var(--color-black-rock);
   --color-paragraph: var(--color-black-rock);
   --color-special-one: var(--color-black-rock);
+  --color-heading-background: var(--color-valhalla);
+  --color-page-accent: var(--color-heading);  
+  --color-page-accent-font: var(--color-white);
   // Modern link
   --color-link-text: var(--color-black-rock);
   --color-link-text-hover: var(--color-black);

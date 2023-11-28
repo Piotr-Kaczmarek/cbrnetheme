@@ -66,4 +66,8 @@ function air_helper_clean_admin_notices()
     if (! get_option('yaymail_noti_sale')) {
         update_option('yaymail_noti_sale', true, false);
     }
+  // Themeisle
+    if (! get_option('dismiss_themeisle_notice_event_otter')) {
+        update_option('dismiss_themeisle_notice_event_otter', true, false);
+    }
 } // end air_helper_clean_admin_notices

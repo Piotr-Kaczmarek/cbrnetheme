@@ -18,7 +18,16 @@ get_header(); ?>
 <main class="site-main">
 
   <section class="block block-single">
-    <article class="article-content">
+    <?php
+    $page_color_vars = '';
+    if (!empty(get_post_custom_values('page-accent-color'))) {
+        $page_color_vars = "--color-page-accent: ".get_post_custom_values('page-accent-color')[0]."; ";
+    }
+    if (!empty(get_post_custom_values('page-accent-color'))) {
+        $page_color_vars .= "--color-page-accent-font: ".get_post_custom_values('page-accent-font-color')[0]."; ";
+    }
+    ?>    
+    <article class="article-content" style="<?=$page_color_vars?>">
 
       <h1><?php the_title(); ?></h1>
 

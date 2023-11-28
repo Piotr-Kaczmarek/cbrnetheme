@@ -41,7 +41,7 @@ add_action('after_setup_theme', function () {
      * Logo and featured image
      */
     'default_featured_image'  => null,
-    'logo'                    => '/svg/logo.svg',
+    'logo'                    => '/svg/logo-rcb.svg',
 
     /**
      * Custom setting group settings when using Air setting groups plugin.

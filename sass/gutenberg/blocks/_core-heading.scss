@@ -20,3 +20,27 @@ h6 {
     margin-top: 0;
   }
 }
+
+h1{
+  background-color: var(--color-page-accent);
+  color: var(--color-page-accent-font);
+  padding: 1.3rem;
+  max-width: 80vw;
+  left: 0;
+  margin-left: 0;
+  padding-left: 23rem;
+}
+
+h5{
+  color: var(--color-white);
+  background-color: var(--color-heading-background);
+  padding: .5rem 2.5rem;
+
+  &[class^='wp-block-']{
+    position: relative;
+    left: 23rem;
+    right: 0;
+    width: auto;
+    max-width: 100vw;
+  }
+}

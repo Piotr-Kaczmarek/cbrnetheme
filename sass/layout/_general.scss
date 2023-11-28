@@ -141,3 +141,21 @@
   display: none !important;
 }
 
+// H5 as full width background heading style for posts
+.article-content{
+
+  .solid-background{
+    background-color: var(--color-heading-background);
+    padding: 1rem 2rem;
+  }
+
+  .large-font{
+    font-size: var(--font-size-h4);
+    font-weight: 700;
+  }
+
+  .color-own {
+    color: var(--color-white);
+  }
+}
+
