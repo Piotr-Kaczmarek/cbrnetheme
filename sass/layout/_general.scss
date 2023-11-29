@@ -155,7 +155,29 @@
   }
 
   .color-own {
-    color: var(--color-white);
+    color: var(--color-page-accent-font);
+    background-color: var(--color-page-accent);
+  }
+
+  ul {
+    list-style: none;
+  }
+  ul:not(.categories){
+    padding-left: 4rem;
+  
+    li::before{
+        content: "\2022";
+        color: var(--color-page-accent);
+        font-weight: 700;
+        display: inline-block;
+        width: 1.3rem;
+        margin-left: -1.3rem;
+      }
   }
 }
 
+  .wp-block-cover__background{
+    &.full-opacity{
+      opacity: 1;
+    }
+  }

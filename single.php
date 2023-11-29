@@ -16,7 +16,6 @@ the_post();
 get_header(); ?>
 
 <main class="site-main">
-
   <section class="block block-single">
     <?php
     $page_color_vars = '';
@@ -28,10 +27,30 @@ get_header(); ?>
     }
     ?>    
     <article class="article-content" style="<?=$page_color_vars?>">
+    <div class="hero-image wp-block-cover alignfull">
+     <span aria-hidden="true" class="wp-block-cover__background full-opacity">
+     <?php
+      //add featured image
+        if (has_post_thumbnail()) {
+            the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
+        }
+        ?>      
+      </span>
+      </div>
+      <div class="title">
+        <span class="title-icon">
+        <?php
+        if (!empty(get_post_custom_values('page-icon-image'))) {
+            ?>
+              <img decoding="async" src="<?=get_post_custom_values('page-icon-image')[0]?>" alt="" class="" style="object-fit:cover;">
+            <?php
+        }
+        ?>
+        </span>
+        <h1><?php the_title(); ?></h1>
+      </div>
 
-      <h1><?php the_title(); ?></h1>
-
-      <?php the_content();
+      <?php echo $the_content = get_the_content();
 
       // Required by WordPress Theme Check, feel free to remove as it's rarely used in starter themes
         wp_link_pages(array( 'before' => '<div class="page-links">' . esc_html__('Pages:', 'cbrnetheme'), 'after' => '</div>' ));
@@ -50,6 +69,13 @@ get_header(); ?>
         } ?>
 
     </article>
+    <div class="sidebar">
+      <?php
+        preg_match_all('@<h2.*?>(.*?)<\/h2>@', $the_content, $matches);
+        $tag = $matches[1];
+        var_dump($tag);
+        ?>
+    </div> 
   </section>
 
 </main>

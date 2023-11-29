@@ -21,26 +21,56 @@ h6 {
   }
 }
 
-h1{
+.title{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;  
+  background-color: var(--color-page-accent);
+  color: var(--color-page-accent-font); 
+  margin-bottom: var(--margin-between-paragraphs);
+  margin-top: var(--margin-between-paragraphs);
+
+  h1{
+    text-align: center;
+    padding: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .title-icon{
+    margin: 0 1rem;
+    img{
+      max-height: 50%;
+      height: 10rem;
+      width: auto;
+    }
+  }
+}
+
+h2[class^='wp-block-']{
   background-color: var(--color-page-accent);
   color: var(--color-page-accent-font);
   padding: 1.3rem;
   max-width: 80vw;
   left: 0;
   margin-left: 0;
-  padding-left: 23rem;
+  padding-left: calc((100vw - $width-max-article) / 2);
+  padding-right: 0;
+
+  @media (max-width: $width-max-article + 40px) {    
+    padding-left: calc( (100vw - calc(100% - calc(var(--padding-container-horizontal) * 2))) / 2);
+  }
+}
+
+h3, h4{
+  color: var(--color-page-accent);
 }
 
 h5{
   color: var(--color-white);
   background-color: var(--color-heading-background);
   padding: .5rem 2.5rem;
-
-  &[class^='wp-block-']{
-    position: relative;
-    left: 23rem;
-    right: 0;
-    width: auto;
-    max-width: 100vw;
-  }
 }

@@ -137,7 +137,7 @@ add_action('after_setup_theme', function () {
 
     // Restrict to only selected blocks
     // Set the value to 'all' to allow all blocks everywhere
-    'allowed_blocks' =>[
+    'allowed_blocks' => 'all',/*[
       'default' => [
       ],
       'post' => [
@@ -177,7 +177,7 @@ add_action('after_setup_theme', function () {
         'core/video',
       ],
       'page' => 'all',
-    ],
+    ],*/
 
     // If you want to use classic editor somewhere, define it here
     'use_classic_editor' => [],

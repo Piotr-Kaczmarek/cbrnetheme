@@ -5,7 +5,7 @@
   padding-bottom: var(--padding-block);
   padding-left: 0;
   padding-right: 0;
-  padding-top: var(--padding-block);
+  padding-top: 0;
 }
 
 // Gutenberg core magic
@@ -26,5 +26,21 @@
       padding-right: var(--padding-container-horizontal);
       width: calc(100% - calc(var(--padding-container-horizontal) * 2));
     }
+  }  
+}
+
+.article-content{
+  .hero-image{
+    &.alignfull{        
+      margin-top: 0;
+      margin-bottom: 0;
+      min-height: 35vh;
+    }
+  } 
+}
+
+@media only screen and (min-width: $width-max-mobile) {
+  .site-header{
+    margin-bottom: 3rem;
   }
 }
