@@ -74,15 +74,7 @@ body.no-color {
 
   // Navigation wrapper
   .nav-wrapper{
-    flex-basis: 100%;
-    overflow: visible;
-    width: 100vw;
-    background-color: var(--color-heading);
-    position: absolute;
-    left: 50%;
-    top: 10rem;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    order: 1;
   }
   .nav-primary {
     display: flex;

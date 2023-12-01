@@ -13,10 +13,31 @@
 namespace Cbrne_Theme;
 
 the_post();
-get_header(); ?>
+get_header();
+
+// restrict sidebar to one category of posts
+in_category('zagrozenia') ? $use_sidebar = true : $use_sidebar = false;
+
+?>
 
 <main class="site-main">
-  <section class="block block-single">
+<?php
+if (has_post_thumbnail()) {
+    ?>
+<div class="hero-image wp-block-cover alignfull">
+     <span aria-hidden="true" class="wp-block-cover__background full-opacity">
+     <?php
+      //add featured image
+        
+            the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
+
+        ?>      
+      </span>
+</div>
+    <?php
+}
+?>
+  <section class="block block-single <?php echo ($use_sidebar == true) ? 'with-sidebar' : '';?>">
     <?php
     $page_color_vars = '';
     if (!empty(get_post_custom_values('page-accent-color'))) {
@@ -27,16 +48,6 @@ get_header(); ?>
     }
     ?>    
     <article class="article-content" style="<?=$page_color_vars?>">
-    <div class="hero-image wp-block-cover alignfull">
-     <span aria-hidden="true" class="wp-block-cover__background full-opacity">
-     <?php
-      //add featured image
-        if (has_post_thumbnail()) {
-            the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
-        }
-        ?>      
-      </span>
-      </div>
       <div class="title">
         <span class="title-icon">
         <?php
@@ -50,12 +61,14 @@ get_header(); ?>
         <h1><?php the_title(); ?></h1>
       </div>
 
-      <?php echo $the_content = get_the_content();
+      <?php
+        the_content();
+        $the_content = get_the_content();
 
       // Required by WordPress Theme Check, feel free to remove as it's rarely used in starter themes
         wp_link_pages(array( 'before' => '<div class="page-links">' . esc_html__('Pages:', 'cbrnetheme'), 'after' => '</div>' ));
 
-        entry_footer();
+        // entry_footer(); // remove categories, tags and commentary
 
         if (get_edit_post_link()) {
             edit_post_link(sprintf(wp_kses(__('Edit <span class="screen-reader-text">%s</span>', 'cbrnetheme'), [ 'span' => [ 'class' => [] ] ]), get_the_title()), '<p class="edit-link">', '</p>');
@@ -69,13 +82,26 @@ get_header(); ?>
         } ?>
 
     </article>
-    <div class="sidebar">
-      <?php
+    <?php
+    // this is to restrict sidebar only to one category
+    if ($use_sidebar) {
+        ?>
+      <div class="sidebar post-menu-wrapper">
+        <?php
+        // get all H2 elements from content
+        // build menu with links to H2
         preg_match_all('@<h2.*?>(.*?)<\/h2>@', $the_content, $matches);
         $tag = $matches[1];
-        var_dump($tag);
+        printf('<ul id="menu-post-%s" class="post-menu">', get_the_ID());
+        foreach ($tag as $header) {
+            printf('<li class="menu-link"><a href="#%s">%s</a></li>', string_to_id($header), $header);
+        }
+        printf('</ul>');
         ?>
     </div> 
+        <?php
+    }
+    ?>        
   </section>
 
 </main>

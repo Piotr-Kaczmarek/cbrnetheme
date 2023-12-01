@@ -129,3 +129,30 @@ function air_helper_stop_user_enumeration()
         }
     }
 } // end air_helper_stop_user_enumeration
+
+// 1. remove non letter characters
+// 2. to lowercase
+function string_to_id($str)
+{
+    $str = preg_replace(
+        array('/([^A-z]+)/', '/^-/','/-$/'),
+        array('-','', ''),
+        strtolower($str)
+    );
+    return $str;
+}
+
+// filter post content to add id's to h2 heders
+add_filter('the_content', 'cbrne_content_string_replacements');
+function cbrne_content_string_replacements($content)
+{
+    if (is_single() && in_the_loop() && is_main_query()) {
+        return preg_replace_callback_array([
+            // add id to h2
+            '/<(h2.*?)>(.*?)<\/h2>/' => function (&$matches) {
+                return sprintf('<%s id="%s">%s</h2>', $matches[1], string_to_id($matches[2]), $matches[2]);
+            },
+        ], $content);
+    }
+    return $content;
+}

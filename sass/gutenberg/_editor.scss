@@ -185,6 +185,21 @@
   margin-right: unset;
 }
 
+// Article title
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper{
+  background-color: var(--color-black-rock);
+  border-bottom: 1px solid var(--color-black-rock);
+  color: var(--color-white);
+  position: relative;
+  z-index: 3;  
+}
+
+.block-editor .editor-styles-wrapper .editor-post-title{
+  color: var(--color-white);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
 // Article view main title in Gutenberg editor
 .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper .editor-post-title {
   -moz-osx-font-smoothing: grayscale;

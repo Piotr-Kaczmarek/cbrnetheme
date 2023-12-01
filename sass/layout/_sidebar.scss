@@ -1,0 +1,29 @@
+// This file is meant for sidebar on single post pages
+section.with-sidebar{
+    .sidebar{
+        max-width:20vw;
+        min-width: 35rem;
+        width: 35rem;
+        padding: 1rem;
+
+        ul.post-menu{
+            width: 100%;
+            list-style: none;
+        }
+
+        @media (max-width: $width-max-mobile + 300px) {
+            display: none;
+        }        
+
+    }
+    
+    @media (min-width: $width-max-mobile + 300px) {
+        display: flex;
+        flex-flow: row nowrap;
+
+        h2[class^='wp-block-']{
+            padding-left: calc( (100vw - 35rem - 800px) / 2);            
+            
+        }
+    }    
+}

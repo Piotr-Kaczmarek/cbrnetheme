@@ -1,8 +1,25 @@
 // This file is meant for home page styles
+.site-main .wp-block-themeisle-blocks-posts-grid, 
+.site-main .wp-block-query{
+  max-width: $width-max-article;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .site-main .half-screen-columns{
     margin-bottom: 0;
     gap: 0;
   
+    .wp-block-column{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem 8rem;
+      }
+      
     .wp-block-image {
         min-height: 50vh;
         width: 100%;
@@ -15,21 +32,19 @@
           height: auto;
         }
     }
-  
-    .wp-block-column{
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 4rem 8rem;
+
+    p ~ .wp-block-image, ul ~ .wp-block-image{
+        width: auto;
+        height: auto;
+        min-height: 1rem;
     }
-  }
+}
   
-  .half-screen-columns:nth-of-type(2n+1){
+.half-screen-columns:nth-of-type(2n+1){
     @media (max-width: $width-max-mobile) {
       .wp-block-column:nth-child(2n){
         order: -1;
       }
     }  
-  }
+}
   

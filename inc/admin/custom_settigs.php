@@ -90,7 +90,11 @@ function cbrne_custom_options_admin_init()
     );
     register_setting(
         'cbrne_custom_options_page',
-        'cbrne_alert_bar_title'
+        'cbrne_alert_bar_title',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field'
+        )
     );
     // subtitle field
     add_settings_field(
@@ -110,7 +114,11 @@ function cbrne_custom_options_admin_init()
     );
     register_setting(
         'cbrne_custom_options_page',
-        'cbrne_alert_bar_subtitle'
+        'cbrne_alert_bar_subtitle',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field'
+        )
     );
     // text field
     add_settings_field(
@@ -131,7 +139,11 @@ function cbrne_custom_options_admin_init()
     );
     register_setting(
         'cbrne_custom_options_page',
-        'cbrne_alert_bar_message'
+        'cbrne_alert_bar_message',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field'
+        )
     );
     // alert bar on/off checkbox
     add_settings_field(
