@@ -7,16 +7,10 @@
 // and start over.
 .site-footer {
   clear: both;
-  color: var(--color-white);
   overflow: hidden;
-  padding: 6rem 2rem;
+  padding: 0;
   text-align: center;
   position: relative;
-
-  p,
-  span {
-    color: var(--color-black);
-  }
 
   .wordpress-logo {
     display: block;
@@ -51,7 +45,6 @@
   }
 
   a {
-    color: var(--color-black);
     transition: opacity $transition-duration;
 
     &:hover,
@@ -81,5 +74,91 @@
 
   .nav-wrapper{
     top:0;
+  }
+
+  .sub-section{
+    max-width: $width-grid-base;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--color-paragraph);
+  }
+}
+
+.footer-columns{
+  color: var(--color-white);
+  background-color: var(--color-footer-background);
+  padding: 4rem 2rem;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  .footer-columns-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: $width-grid-base;
+    flex-basis: $width-grid-base;
+  }
+
+  h1, h2, h3, h4{
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  p {
+    color: var(--color-white);
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .footer-column{
+    display: flex;
+    flex-flow: column nowrap;
+    flex-basis: 25%;
+    padding: 2rem;
+    min-width: 20rem;
+    flex-grow: 1;
+  }
+}
+
+.cc-footer{
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;    
+
+    .icons {
+      display: flex;
+
+      span{
+        display: inline;
+      }
+      svg{
+        width: 3rem;
+        height: auto;
+      }
+    }
+
+    .text {
+      display: inline-block;
+      padding-left: 1rem;
+    }
+}
+
+.site-info{
+  max-width: $width-grid-base;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  svg{
+    width: 5rem;
+    height: auto;
   }
 }

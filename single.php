@@ -24,7 +24,7 @@ in_category('zagrozenia') ? $use_sidebar = true : $use_sidebar = false;
 <?php
 if (has_post_thumbnail()) {
     ?>
-<div class="hero-image wp-block-cover alignfull">
+  <div class="hero-image wp-block-cover alignfull">
      <span aria-hidden="true" class="wp-block-cover__background full-opacity">
      <?php
       //add featured image
@@ -33,7 +33,7 @@ if (has_post_thumbnail()) {
 
         ?>      
       </span>
-</div>
+  </div>      
     <?php
 }
 ?>
@@ -86,7 +86,7 @@ if (has_post_thumbnail()) {
     // this is to restrict sidebar only to one category
     if ($use_sidebar) {
         ?>
-      <div class="sidebar post-menu-wrapper">
+      <div id="post-sidebar" class="sidebar post-menu-wrapper">
         <?php
         // get all H2 elements from content
         // build menu with links to H2

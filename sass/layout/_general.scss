@@ -37,6 +37,11 @@
   max-width: 100%;
   overflow: hidden;
   position: relative;
+  background-color: var(--color-white);
+}
+
+.site-main{
+  background-color: var(--color-page-background);
 }
 
 // Containers

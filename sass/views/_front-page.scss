@@ -1,1 +1,62 @@
 // The styles of the most important page on the website go here (front-page).
+.post-grid{
+    margin-left: auto;
+    margin-right: auto;
+
+
+    .grid-wrapper{
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .grid-post{
+        flex-basis: 32%;
+        margin: 1%;
+        padding: 2rem;
+        background-color: var(--color-block-background);
+
+        &:nth-child(3n+1){
+            margin-left: 0;
+        }
+        &:nth-child(3n+3){
+            margin-right: 0;
+        }
+
+
+        .post-excerpt{
+            font-size: var(--font-size-captions);
+        }
+
+        img{
+            height: 7.5rem;
+            width: auto;
+            overflow: hidden;
+        }
+
+        .post-title h3{
+            font-size: var(--font-size-paragraph);
+            margin-bottom: 1rem;
+        }
+
+        .post-title a, a.read-more{
+                text-decoration: none;
+
+                &:hover, &:active, &:focus{
+                    text-decoration: underline;
+                }
+            }
+
+        @media(max-width: $width-max-mobile){
+            flex-basis: 48%;
+
+            &:nth-child(n){
+                margin: 1%;            
+            }          
+        }
+        
+        @media(max-width: $container-mobile){
+            flex-basis: 100%;
+        }
+
+    }
+}

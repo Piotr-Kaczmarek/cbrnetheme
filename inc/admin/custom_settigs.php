@@ -120,7 +120,7 @@ function cbrne_custom_options_admin_init()
             'sanitize_callback' => 'sanitize_text_field'
         )
     );
-    // text field
+    // text area
     add_settings_field(
         'cbrne_alert_bar_message',
         esc_attr__('Define alert bar message'),
@@ -170,6 +170,66 @@ function cbrne_custom_options_admin_init()
             'default'   => null
         )
     );
+    // footer settings
+    // new section
+    add_settings_section(
+        'cbrne_custom_options_third_section',
+        esc_attr__('Footer settings'),
+        'cbrne_footer_settings_options_section_callback',
+        'cbrne_custom_options_page'
+    );
+    // text area
+    // cbrne_footer_settings_section_one
+    add_settings_field(
+        'cbrne_footer_settings_section_one',
+        esc_attr__('Define footer addres field'),
+        'cbrne_custoom_settings_textarea_callback',
+        'cbrne_custom_options_page',
+        'cbrne_custom_options_third_section',
+        array(
+            'type'         => 'textarea',
+            'option_group' => 'cbrne_custom_options_page',
+            'name'         => 'cbrne_footer_settings_section_one',
+            'label_for'    => 'cbrne_footer_settings_section_one',
+            'value'        => get_option('cbrne_footer_settings_section_one'),
+            'rows'         => 5,
+            'cols'         => 40,
+            )
+    );
+    register_setting(
+        'cbrne_custom_options_page',
+        'cbrne_footer_settings_section_one',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'wp_kses_post'
+        )
+    );
+    // text area 2
+    // cbrne_footer_settings_section_two
+    add_settings_field(
+        'cbrne_footer_settings_section_two',
+        esc_attr__('Define footer contact field'),
+        'cbrne_custoom_settings_textarea_callback',
+        'cbrne_custom_options_page',
+        'cbrne_custom_options_third_section',
+        array(
+            'type'         => 'textarea',
+            'option_group' => 'cbrne_custom_options_page',
+            'name'         => 'cbrne_footer_settings_section_two',
+            'label_for'    => 'cbrne_footer_settings_section_two',
+            'value'        => get_option('cbrne_footer_settings_section_two'),
+            'rows'         => 5,
+            'cols'         => 40,
+            )
+    );
+    register_setting(
+        'cbrne_custom_options_page',
+        'cbrne_footer_settings_section_two',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'wp_kses_post'
+        )
+    );
 }
 
 function cbrne_custom_options_section_callback()
@@ -183,8 +243,51 @@ function cbrne_custom_settings_checkbox_callback($args)
     isset($args['value'])&&($args['value'] == 'on') ? $checked = 'checked' : $checked = null;
 
         $html  = '';
-        $html .= '
+        $html .= '<input id="' . esc_attr($args['name']) . '" class="cb-toggle ' . esc_attr($args['class']) .'" name="' . esc_attr($args['name']) .'" type="checkbox" '.$checked.' />';
+        $html .= '<span class="wndspan">' . esc_html($args['description']) .'</span>';
+
+        echo $html;
+}
+  
+// validate our options
+
+function cbrne_text_box_validate($args)
+{
+    sanitize_text_field($args);
+}
+
+function cbrne_alert_bar_options_section_callback()
+{
+    esc_attr_e('Change alert bar settings') ;
+}
+
+function cbrne_footer_settings_options_section_callback()
+{
+    esc_attr_e('Change footer data');
+}
+
+function cbrne_custoom_settings_input_callback($args)
+{
+    $html = '<input  type="' . esc_attr($args['type']) . '" name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" value="' . esc_attr($args['value']) . '" size="' . esc_attr($args['size']) . '" />';
+    echo $html;
+}
+function cbrne_custoom_settings_textarea_callback($args)
+{
+    $html = '<textarea name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" rows="' . esc_attr($args['rows']) . '" cols="' . esc_attr($args['cols']) . '">' . esc_attr($args['value']) . '</textarea>';
+    echo $html;
+}
+
+// add styles to admin
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts()
+{
+    echo '
         <style type="text/css">
+        /* disable nags */
+        #tmpl-acf-field-group-pro-features{
+            display: none !important;
+        }
         /* Toggle Button */
         input[type="checkbox"].cb-toggle {
             position: relative;
@@ -252,31 +355,4 @@ function cbrne_custom_settings_checkbox_callback($args)
             -o-transition: ease .3s;
         }
         </style>';
-        $html .= '<input id="' . esc_attr($args['name']) . '" class="cb-toggle ' . esc_attr($args['class']) .'" name="' . esc_attr($args['name']) .'" type="checkbox" '.$checked.' />';
-        $html .= '<span class="wndspan">' . esc_html($args['description']) .'</span>';
-
-        echo $html;
-}
-  
-// validate our options
-
-function cbrne_text_box_validate($args)
-{
-    sanitize_text_field($args);
-}
-
-function cbrne_alert_bar_options_section_callback()
-{
-    esc_attr_e('Change alert bar settings') ;
-}
-
-function cbrne_custoom_settings_input_callback($args)
-{
-    $html = '<input  type="' . esc_attr($args['type']) . '" name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" value="' . esc_attr($args['value']) . '" size="' . esc_attr($args['size']) . '" />';
-    echo $html;
-}
-function cbrne_custoom_settings_textarea_callback($args)
-{
-    $html = '<textarea name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" rows="' . esc_attr($args['rows']) . '" cols="' . esc_attr($args['cols']) . '">' . esc_attr($args['value']) . '</textarea>';
-    echo $html;
 }

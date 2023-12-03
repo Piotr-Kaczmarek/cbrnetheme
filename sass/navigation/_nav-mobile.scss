@@ -81,8 +81,12 @@ body.no-color{
 @media screen and (max-width: $width-max-mobile - 1px) {
   // Let's ensure site-header loads properly and doesn't leave empty spaces
   .site-header {
-    background-color: var(--color-background-nav-mobile-header);
-  
+    .nav-block{
+      background-color: var(--color-background-nav-mobile-header);
+      align-self: stretch;
+      flex-basis: 10rem;
+      align-items: center;      
+    }
     .site-title{
         svg{
         color: var(--color-white);

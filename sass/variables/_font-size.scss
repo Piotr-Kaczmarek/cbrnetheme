@@ -24,7 +24,7 @@
   // Element font sizes
   --font-size-paragraph: var(--font-size-18);
   --font-size-nav-toggle-label: 15px;
-  --font-size-captions: 15px;
+  --font-size-captions: 16px;
 
   // Line-heights
   --line-height-heading: 1.5;
@@ -49,11 +49,13 @@
     --font-size-h5: 19px;
     --font-size-h6: 12px;
     --font-size-paragraph: 16px;
+    --font-size-captions: 15px;
   }
 
   // Element font sizes in tiny phones like iPhone 5S
   @media (max-width: 420px) {
     --font-size-16: 14px;
     --font-size-nav-toggle-label: 13px;
+    --font-size-captions: 14px;
   }
 }

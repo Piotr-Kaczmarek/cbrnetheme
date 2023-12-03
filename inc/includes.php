@@ -38,9 +38,10 @@ if (file_exists(get_theme_file_path('/inc/includes/archives.php'))) {
 if (file_exists(get_theme_file_path('/inc/includes/comments.php'))) {
     require get_theme_file_path('/inc/includes/comments.php');
 }
+/*
 if (file_exists(get_theme_file_path('/inc/includes/customizer.php'))) {
     require get_theme_file_path('/inc/includes/customizer.php');
-}
+}*/
 if (file_exists(get_theme_file_path('/inc/includes/misc.php'))) {
     require get_theme_file_path('/inc/includes/misc.php');
 }
@@ -74,7 +75,7 @@ function air_helper_admin_fly()
     require_once get_theme_file_path() . '/inc/admin/gutenberg.php';
     require_once get_theme_file_path() . '/inc/admin/updates.php';
 
-    require_once get_theme_file_path() . '/inc/admin/customizer.php';
+    //require_once get_theme_file_path() . '/inc/admin/customizer.php';
     //
     require_once get_theme_file_path() . '/inc/admin/custom_settigs.php';
 } // end air_helper_admin_fly

@@ -6,17 +6,18 @@
 :root{
   // Brand color pool
   --color-black: #222;
-  --color-black-rock: #2b303c;
+  --color-black-rock: #3d3f44;
   --color-blue-chalk: #ece6f2;
   --color-east-bay: #545773;
   --color-pattens-blue: #dbe9f7;
   --color-science-blue: #0049d1;
   --color-scorpion: #5f5f5f;
-  --color-valhalla: #2a2d3e;
+  --color-valhalla: #3e4152;
   --color-white: #fff;
   --color-green: #078007;
   --color-blue: #0052a5;
   --color-red: #d5233f;
+  --color-gray-neutral: #f2f2f2;
 
   // Main element colors
   --color-heading: var(--color-main);
@@ -28,6 +29,10 @@
   --color-heading-background: var(--color-valhalla);
   --color-page-accent: var(--color-heading);
   --color-page-accent-font: var(--color-white);  
+  --color-page-background: var(--color-gray-neutral);
+  --color-block-background: var(--color-white);
+  --color-footer-background: var(--color-main);
+
    // Modern link
   --color-link-text: var(--color-black-rock);
   --color-link-text-hover: var(--color-black);
@@ -60,6 +65,8 @@ body.no-color{
   --color-heading-background: var(--color-valhalla);
   --color-page-accent: var(--color-heading);  
   --color-page-accent-font: var(--color-white);
+  --color-page-background: var(--color-gray-neutral);
+  --color-footer-background: var(--color-main);
   // Modern link
   --color-link-text: var(--color-black-rock);
   --color-link-text-hover: var(--color-black);

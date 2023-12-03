@@ -20,10 +20,39 @@ namespace Cbrne_Theme;
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer">
-<?php get_template_part('template-parts/footer/footer-nav'); ?>
+  <div id="footer-columns" class="footer-columns">
+    <div class="footer-columns-wrapper">
+      <div class="footer-column">
+        <?php get_template_part('template-parts/footer/footer-nav'); ?>
+      </div>
+      <div class="footer-column">
+        <span><?php echo get_option('cbrne_footer_settings_section_one');?></span>
+      </div>
+      <div class="footer-column">
+        <span><?php echo get_option('cbrne_footer_settings_section_two');?></span>
+      </div>
+      <div class="footer-column">
+        <?php get_template_part('template-parts/footer/footer-nav-2'); ?>
+      </div>
+    </div>
+  </div><!-- footer columns end -->
+  <div id="footer-sub-section" class="sub-section">
+      <?php get_template_part('template-parts/footer/footer-nav-sub'); ?>
+      <div class="cc-footer">
+        <div class="icons">
+          <span class="license-cc" aria-hidden="true"><?php include get_theme_file_path('svg/cc.svg'); ?></span>
+          <span class="license-by" aria-hidden="true"><?php include get_theme_file_path('svg/by.svg'); ?></span>
+        </div>
+        <div class="text">Wszystkie treści publikowane w serwisie są udostępniane na licencji Creative Commons: uznanie autorstwa - użycie niekomercyjne - bez utworów zależnych 3.0 Polska (CC BY-NC-ND 3.0 PL), o ile nie jest to stwierdzone inaczej.</div>
+      </div>
+  </div><!-- sub section end -->
   <div class="site-info">
-    <span class="theme-info">
-    </span>
+      <div id="ng-logo" style="position: relative; top: 1em;">
+        <?php include get_theme_file_path('svg/Norway_grants.svg'); ?>
+      </div>  
+      <div id="footer-logo">
+        <?php include get_theme_file_path(THEME_SETTINGS['logo']); ?>
+      </div>
   </div>
 
 </footer><!-- #colophon -->

@@ -149,7 +149,7 @@ function cbrne_content_string_replacements($content)
     if (is_single() && in_the_loop() && is_main_query()) {
         return preg_replace_callback_array([
             // add id to h2
-            '/<(h2.*?)>(.*?)<\/h2>/' => function (&$matches) {
+            '/<(h2.*?)>(.*?)<\/h2>/' => function ($matches) {
                 return sprintf('<%s id="%s">%s</h2>', $matches[1], string_to_id($matches[2]), $matches[2]);
             },
         ], $content);

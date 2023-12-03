@@ -21,7 +21,6 @@ define('Cbrne_Theme_VERSION', '0.0.1');
 
 // We need to have some defaults as comments or empties so let's allow this:
 // phpcs:disable Squiz.Commenting.InlineComment.SpacingBefore, WordPress.Arrays.ArrayDeclarationSpacing.SpaceInEmptyArray
-
 /**
  * Theme settings
  */
@@ -79,6 +78,8 @@ add_action('after_setup_theme', function () {
     'menu_locations' => [
       'primary' => __('Primary Menu', 'cbrnetheme'),
       'footer' => __('Footer Menu', 'cbrnetheme'),
+      'footer-secondary'=> __('Footer Secondary Menu', 'cbrnetheme'),
+      'footer-sub'=> __('Footer Bottom Menu', 'cbrnetheme'),
     ],
 
     /**
@@ -224,3 +225,104 @@ function my_msls_output_get_tags($tags)
     );
 }
 add_filter('msls_output_get_tags', __NAMESPACE__ .'\my_msls_output_get_tags');
+
+// produce shortcode for home page grid
+add_shortcode('home-page-grid', __NAMESPACE__ .'\cbrne_generate_home_page_grid');
+function cbrne_generate_home_page_grid($atts)
+{
+// get post category
+// default post category = 'zagrozenia'
+// default count = 9 (number of posts to query)
+// excerpt length in words, default = 10
+// need ACF (free)
+    // get default category name 'zagrozenia'
+    $atts = shortcode_atts(array(
+      'cat' => 'zagrozenia',
+      'count'=> 9,
+      'text_length' => 10,
+    ), $atts, 'home-page-grid');
+    // get the posts
+    $args = array(
+      'post_type' => 'post',
+      'posts_per_page' => $atts['count'],
+      'orderby' => 'menu_order',
+      'order' => 'ASC',
+      'category_name' => $atts['cat'],
+    );
+
+    $html = '';
+    // query DB
+    $loop = new \WP_Query($args);
+    if ($loop->have_posts()) {
+        $html .= '<div class="post-grid alignwide" id="home-post-grid">';
+        $html .= '<div class="is-grid grid-wrapper">';
+        while ($loop->have_posts()) {
+            $loop->the_post();
+
+            // show them
+            $html .= '<div class="grid-post">';
+            // get post page-icon from acf
+            $icon_image_id = !empty(get_field('page-icon')) ? get_field('page-icon') : 212;
+                $image_obj = wp_get_attachment_image_src($icon_image_id);
+                $image_tag = '<img src="' .$image_obj[0]. '" ';
+                $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
+                $image_tag .= 'alt="'.get_post_meta($icon_image_id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $icon_image_id).'" class="post-icon" wp-image="' . $icon_image_id . '" />';
+            $image_tag = \wp_filter_content_tags($image_tag);
+            $html .= sprintf('<a href="%s">', get_permalink());
+            $html .= $image_tag;
+            $html .= '</a>';
+            // post title
+            $html .= sprintf('<div class="post-title" title><a href="%s">', get_permalink());
+            $html .= sprintf('<h3>%s</h3>', get_the_title($loop->post->ID));
+            $html .= '</a></div>';
+            // excerpt
+            $html .= sprintf('<div class="post-excerpt" title>%s', cbrne_limit_excerpt_words(get_the_excerpt(), $atts['text_length']));
+            $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> '.\apply_filters('excerpt_more', 'Read More').'</a></div>', get_the_permalink());
+
+            $html .= '</div><!-- one post -->';
+        }
+        $html .= '</div></div><!--post grid-->';
+    }
+
+    return $html;
+}
+// add mor link to the excerpt
+function cbrne_excerpt_more($more)
+{
+    //return '<a href="'.get_the_permalink().'" rel="nofollow"> '.__('Read More', 'cbrnetheme').'</a>';
+    return '>>';
+}
+add_filter('excerpt_more', __NAMESPACE__ .'\cbrne_excerpt_more');
+
+// Excerpt length
+function cbrne_excerpt_length($length)
+{
+    return 30;
+}
+add_filter('excerpt_length', __NAMESPACE__ .'\cbrne_excerpt_length');
+
+// limit excerpt in words
+function cbrne_limit_excerpt_words($excerpt, $limit = 30)
+{
+    $excerpt_words = explode(' ', $excerpt);
+    $limit = intval($limit);
+    $i = 0;
+    $result = '';
+    foreach ($excerpt_words as $word) {
+        if ($i++ < $limit) {
+            $result .= $word;
+            $result .= ($i < $limit) ? ' ' : '';
+        } else {
+            $result .=  sizeof($excerpt_words) > $limit ? '...' : '';
+            break;
+        }
+    }
+    return wp_kses_post($result);
+}
+
+// add page attributes to posts (menu_order !)
+add_action('admin_init', __NAMESPACE__ .'\cbrne_post_page_attrib');
+function cbrne_post_page_attrib()
+{
+      add_post_type_support('post', 'page-attributes');
+}

@@ -14,13 +14,27 @@ const backToTop = () => {
     easing: 'easeOutQuart',
   });
   const topButton = document.getElementById('top');
+  // post sidebar
+  const postSidebar = document.getElementById('post-sidebar');
   const focusableElements = document.querySelectorAll(
     'button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])',
   );
 
   function trackScroll() {
-    const scrolled = window.pageYOffset;
+    const scrolled = window.scrollY;
     const scrollAmount = document.documentElement.clientHeight;
+    // sidebar add style fixed
+    let sidebarTop = null;
+    if (document.querySelector('article')) {
+      sidebarTop = document.querySelector('article').getBoundingClientRect().top;
+    }
+
+    if (sidebarTop && sidebarTop < 0) {
+      postSidebar.classList.add('fixed');
+    }
+    if (sidebarTop && sidebarTop > 0) {
+      postSidebar.classList.remove('fixed');
+    }
 
     if (scrolled > scrollAmount) {
       topButton.classList.add('is-visible');
