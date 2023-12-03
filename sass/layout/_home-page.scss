@@ -9,8 +9,11 @@
 }
 
 .site-main .half-screen-columns{
-    margin-bottom: 0;
-    gap: 0;
+    &.alignfull{
+      margin-bottom: 0;
+      margin-top: 0;
+      gap: 0;  
+    }
   
     .wp-block-column{
         display: flex;

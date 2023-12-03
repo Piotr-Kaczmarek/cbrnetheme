@@ -263,11 +263,7 @@ function cbrne_generate_home_page_grid($atts)
             $html .= '<div class="grid-post">';
             // get post page-icon from acf
             $icon_image_id = !empty(get_field('page-icon')) ? get_field('page-icon') : 212;
-                $image_obj = wp_get_attachment_image_src($icon_image_id);
-                $image_tag = '<img src="' .$image_obj[0]. '" ';
-                $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
-                $image_tag .= 'alt="'.get_post_meta($icon_image_id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $icon_image_id).'" class="post-icon" wp-image="' . $icon_image_id . '" />';
-            $image_tag = \wp_filter_content_tags($image_tag);
+            $image_tag = \wp_filter_content_tags(cbrne_get_image_tag($icon_image_id));
             $html .= sprintf('<a href="%s">', get_permalink());
             $html .= $image_tag;
             $html .= '</a>';
@@ -325,4 +321,17 @@ add_action('admin_init', __NAMESPACE__ .'\cbrne_post_page_attrib');
 function cbrne_post_page_attrib()
 {
       add_post_type_support('post', 'page-attributes');
+}
+
+// function to retrive image tag from ACF image ID
+function cbrne_get_image_tag($id)
+{
+    // get post page-icon from acf
+    $image_obj = wp_get_attachment_image_src($id);
+    $image_tag = '<img src="' .$image_obj[0]. '" ';
+    $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
+    $image_tag .= 'alt="'.get_post_meta($icon_image_id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $icon_image_id).'" class="post-icon" wp-image="' . $icon_image_id . '" />';
+    $image_tag = \wp_filter_content_tags($image_tag);
+
+      return $image_tag;
 }

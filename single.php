@@ -51,10 +51,9 @@ if (has_post_thumbnail()) {
       <div class="title">
         <span class="title-icon">
         <?php
-        if (!empty(get_post_custom_values('page-icon-image'))) {
-            ?>
-              <img decoding="async" src="<?=get_post_custom_values('page-icon-image')[0]?>" alt="" class="" style="object-fit:cover;">
-            <?php
+        if (!empty(get_post_custom_values('title-icon'))) {
+            $image_id = get_field('title-icon');
+            echo cbrne_get_image_tag($image_id);
         }
         ?>
         </span>
