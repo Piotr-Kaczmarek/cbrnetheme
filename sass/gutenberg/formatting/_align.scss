@@ -60,3 +60,16 @@
     }
   }
 }
+
+.site-main{
+  .hero-image{
+    margin: 0;
+    background-color: var(--color-white);
+
+    .wp-block-cover__background{
+      @media(max-width: $width-max-article){
+          left: calc(100vw - 1440px);
+      }  
+    }
+  }
+}

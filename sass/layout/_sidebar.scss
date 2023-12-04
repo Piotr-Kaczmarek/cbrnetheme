@@ -1,10 +1,15 @@
 // This file is meant for sidebar on single post pages
 section.with-sidebar{
+    .article-content{
+        flex-grow: 1;
+    }
     .sidebar{
         max-width:20vw;
         min-width: 35rem;
         width: 35rem;
         padding: 1rem;
+        position: absolute;
+        right: 0;
 
         ul.post-menu{
             width: 100%;
@@ -17,7 +22,7 @@ section.with-sidebar{
             right: 0;
         }
 
-        @media (max-width: $width-max-mobile + 300px) {
+        @media (max-width: 1666px) {
             display: none;
         }        
 
