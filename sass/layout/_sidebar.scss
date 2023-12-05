@@ -31,10 +31,5 @@ section.with-sidebar{
     @media (min-width: $width-max-mobile + 300px) {
         display: flex;
         flex-flow: row nowrap;
-
-        h2[class^='wp-block-']{
-            padding-left: calc( (100vw - 35rem - 800px) / 2);            
-            
-        }
     }    
 }

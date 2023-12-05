@@ -22,6 +22,22 @@ the_post();
 get_header(); ?>
 
 <main class="site-main">
+<?php
+if (has_post_thumbnail()) {
+    ?>
+  <div class="hero-image wp-block-cover alignfull">
+     <span aria-hidden="true" class="wp-block-cover__background full-opacity">
+     <?php
+      //add featured image
+        
+            the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
+
+        ?>      
+      </span>
+  </div>      
+    <?php
+}
+?>  
   <section class="block block-page">
       <article class="article-content" style="">
           <?php
