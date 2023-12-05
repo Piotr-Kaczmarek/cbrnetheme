@@ -32,14 +32,6 @@ h6 {
   margin-bottom: var(--margin-between-paragraphs);
   margin-top: var(--margin-between-paragraphs);
 
-  h1{
-    text-align: center;
-    padding: 1rem;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-
   .title-icon{
     margin: 0 1rem;
     img{
@@ -48,6 +40,14 @@ h6 {
       width: auto;
     }
   }
+}
+
+h1{
+  text-align: center;
+  padding: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 h2[class^='wp-block-']{
@@ -73,4 +73,20 @@ h5{
   color: var(--color-white);
   background-color: var(--color-heading-background);
   padding: .5rem 2.5rem;
+}
+
+.block-page{
+  h1{
+    background-color: var(--color-page-accent);
+    margin: 0 auto 4rem auto;
+  }
+
+  .article-content{
+    padding-top: var(--padding-block);
+  }
+  .article-content .alignfull, .editor-styles-wrapper .alignfull, .site-main .alignfull{
+    @media (min-width: $width-max-article + 40px){
+      margin-top: 0;
+    }  
+  }
 }

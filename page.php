@@ -22,10 +22,14 @@ the_post();
 get_header(); ?>
 
 <main class="site-main">
-  <?php
-    the_content();
-    air_edit_link();
-    ?>
+  <section class="block block-page">
+      <article class="article-content" style="">
+          <?php
+            the_content();
+            air_edit_link();
+            ?>
+      </article>
+  </section>
 </main>
 
 <?php get_footer();

@@ -260,6 +260,7 @@ function cbrne_generate_home_page_grid($atts)
             $loop->the_post();
 
             // show them
+            // make it a link
             $html .= '<div class="grid-post">';
             // get post page-icon from acf
             $icon_image_id = !empty(get_field('page-icon')) ? get_field('page-icon') : 212;
@@ -271,9 +272,12 @@ function cbrne_generate_home_page_grid($atts)
             $html .= sprintf('<div class="post-title" title><a href="%s">', get_permalink());
             $html .= sprintf('<h3>%s</h3>', get_the_title($loop->post->ID));
             $html .= '</a></div>';
+            // make it a link
+            $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> ', get_the_permalink());
             // excerpt
             $html .= sprintf('<div class="post-excerpt" title>%s', cbrne_limit_excerpt_words(get_the_excerpt(), $atts['text_length']));
-            $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> '.\apply_filters('excerpt_more', 'Read More').'</a></div>', get_the_permalink());
+            //$html .= \apply_filters('excerpt_more', 'Read More');
+            $html .= '</a></div>';
 
             $html .= '</div><!-- one post -->';
         }
