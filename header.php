@@ -42,5 +42,23 @@ namespace Cbrne_Theme;
         <?php get_template_part('template-parts/header/language-switcher');?> 
       </div>
     </header>
-
+    <div id="alert-bar" class="alert-bar <?=(!empty(get_option('cbrne_alert_bar_onoff'))) ? 'visible': 'hide-completely'?>">
+        <div class="alert-bar-wrapper">
+          <div class="title"><h1><?=sanitize_text_field(get_option('cbrne_alert_bar_title'));?></h1></div>
+          <?php
+            // hide if subtitle is empty
+            if (!empty(get_option('cbrne_alert_bar_subtitle'))) {
+                ?>
+            <div class="sub-title"><h2><?=sanitize_text_field(get_option('cbrne_alert_bar_subtitle'));?></h2></div>
+                <?php
+            }
+            // hide if textarea is empty
+            if (!empty(get_option('cbrne_alert_bar_message'))) {
+                ?>
+                <div class="text"><p><?=sanitize_text_field(get_option('cbrne_alert_bar_message'));?></p></div>
+                <?php
+            }
+            ?>
+        </div>          
+    </div>
     <div class="site-content">

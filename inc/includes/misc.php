@@ -142,6 +142,14 @@ function string_to_id($str)
     return $str;
 }
 
+// remove heading list number if it at the begining
+function string_remove_number($str)
+{
+    $str = preg_replace('/^\d?\.\s?/', '', $str);
+
+    return $str;
+}
+
 // filter post content to add id's to h2 heders
 add_filter('the_content', 'cbrne_content_string_replacements');
 function cbrne_content_string_replacements($content)

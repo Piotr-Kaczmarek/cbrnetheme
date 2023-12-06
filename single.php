@@ -16,7 +16,7 @@ the_post();
 get_header();
 
 // restrict sidebar to one category of posts
-in_category('zagrozenia') ? $use_sidebar = true : $use_sidebar = false;
+in_category('zagrozenia') ? $use_menu = true : $use_menu = false;
 
 ?>
 
@@ -37,7 +37,7 @@ if (has_post_thumbnail()) {
     <?php
 }
 ?>
-  <section class="block block-single <?php echo ($use_sidebar == true) ? 'with-sidebar' : '';?>">
+  <section class="block block-single <?php echo ($use_menu == true) ? 'with-sidebar' : '';?>">
     <?php
     $page_color_vars = '';
     if (!empty(get_post_custom_values('page-accent-color'))) {
@@ -59,10 +59,15 @@ if (has_post_thumbnail()) {
         </span>
         <h1><?php the_title(); ?></h1>
       </div>
-
+      <?php
+        if ($use_menu) {
+            $the_content = get_the_content();
+            // get post menu
+            include get_theme_file_path().'/inc/template-tags/post-menu.php';
+        }
+        ?>
       <?php
         the_content();
-        $the_content = get_the_content();
 
       // Required by WordPress Theme Check, feel free to remove as it's rarely used in starter themes
         wp_link_pages(array( 'before' => '<div class="page-links">' . esc_html__('Pages:', 'cbrnetheme'), 'after' => '</div>' ));
@@ -80,27 +85,7 @@ if (has_post_thumbnail()) {
             comments_template();
         } ?>
 
-    </article>
-    <?php
-    // this is to restrict sidebar only to one category
-    if ($use_sidebar) {
-        ?>
-      <div id="post-sidebar" class="sidebar post-menu-wrapper">
-        <?php
-        // get all H2 elements from content
-        // build menu with links to H2
-        preg_match_all('@<h2.*?>(.*?)<\/h2>@', $the_content, $matches);
-        $tag = $matches[1];
-        printf('<ul id="menu-post-%s" class="post-menu">', get_the_ID());
-        foreach ($tag as $header) {
-            printf('<li class="menu-link"><a href="#%s">%s</a></li>', string_to_id($header), $header);
-        }
-        printf('</ul>');
-        ?>
-    </div> 
-        <?php
-    }
-    ?>        
+    </article> 
   </section>
 
 </main>

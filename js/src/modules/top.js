@@ -24,16 +24,15 @@ const backToTop = () => {
     const scrolled = window.scrollY;
     const scrollAmount = document.documentElement.clientHeight;
     // sidebar add style fixed
-    let sidebarTop = null;
-    if (document.querySelector('article')) {
+    let sidebarTop = false;
+    if (postSidebar !== null) {
       sidebarTop = document.querySelector('article').getBoundingClientRect().top;
-    }
-
-    if (sidebarTop && sidebarTop < 0) {
-      postSidebar.classList.add('fixed');
-    }
-    if (sidebarTop && sidebarTop > 0) {
-      postSidebar.classList.remove('fixed');
+      if (sidebarTop && sidebarTop < 0) {
+        postSidebar.classList.add('fixed');
+      }
+      if (sidebarTop && sidebarTop > 0) {
+        postSidebar.classList.remove('fixed');
+      }
     }
 
     if (scrolled > scrollAmount) {

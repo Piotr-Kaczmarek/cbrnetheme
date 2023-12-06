@@ -113,6 +113,10 @@
   .wp-block[data-align="wide"] > .wp-block-gallery {
     width: 100%;
   }
+
+  h1 {
+    color: var(--color-paragraph);
+  }
 }
 
 // Fix alignleft and alignright figcaption width

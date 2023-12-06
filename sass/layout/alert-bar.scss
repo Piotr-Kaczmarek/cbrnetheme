@@ -1,0 +1,22 @@
+// styles for alert bar section
+.alert-bar.visible{
+    background-color: var(--color-red);
+    color: var(--color-white);
+
+    h1, h2, h3, p{
+        color: var(--color-white);
+    }
+
+    h1{
+        text-transform: uppercase;        
+    }
+}
+
+.alert-bar-wrapper{
+    padding: var(--padding-container-horizontal) var(--padding-container-vertical);
+}
+
+.alert-bar:not(.visible){
+    // stylelint-disable-next-line declaration-no-important
+    display: none;
+}

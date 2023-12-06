@@ -33,3 +33,24 @@ section.with-sidebar{
         flex-flow: row nowrap;
     }    
 }
+
+#post-menu{
+    ul{
+        list-style-type:decimal;
+
+        li.menu-link{
+            &::before{
+                content: '';
+            }    
+        }
+    }
+}
+
+.accordion{
+    overflow: hidden;
+    display: none;
+}
+
+.accordion.visible{
+    display: block;
+}
