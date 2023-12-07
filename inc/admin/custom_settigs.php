@@ -3,16 +3,16 @@
 add_action('admin_menu', 'cbrne_plugin_admin_add_page');
 function cbrne_plugin_admin_add_page()
 {
-    $menu_name = esc_attr__('Custom Options');
-    $page_name = esc_attr__('Custom Options Page');
+    $menu_name = esc_attr__('Custom Options', 'cbrnetheme');
+    $page_name = esc_attr__('Custom Options Page', 'cbrnetheme');
     add_options_page($page_name, $menu_name, 'manage_options', 'cbrne_custom_options', 'cbrne_custom_options_page');
 }
 
 // display the admin options page
 function cbrne_custom_options_page()
 {
-    $title = esc_attr__('Custom Options');
-    $descr = esc_attr__('Use this to change settings on page');
+    $title = esc_attr__('Custom Options', 'cbrnetheme');
+    $descr = esc_attr__('Use this to change settings on page', 'cbrnetheme');
     ?>
     <div>
     <h2><?=$title?></h2>
@@ -35,13 +35,13 @@ function cbrne_custom_options_admin_init()
     // color mode change
     add_settings_section(
         'cbrne_custom_options_first_section',
-        esc_attr__('Theme colors'),
+        esc_attr__('Theme colors', 'cbrnetheme'),
         'cbrne_custom_options_section_callback',
         'cbrne_custom_options_page'
     );
     add_settings_field(
         'cbrne_change_theme_colors',
-        esc_attr__('Change theme color mode'),
+        esc_attr__('Change theme color mode', 'cbrnetheme'),
         'cbrne_custom_settings_checkbox_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_first_section',
@@ -51,8 +51,8 @@ function cbrne_custom_options_admin_init()
             'name'         => 'cbrne_change_theme_colors',
             'label_for'    => 'cbrne_change_theme_colors',
             'value'        => empty(get_option('cbrne_change_theme_colors')) ? 0 : get_option('cbrne_change_theme_colors'),
-            'description'  => esc_attr__('Check to change theme color mode to monochrome'),
-            'tip'          => esc_attr__('Change theme color mode')
+            'description'  => esc_attr__('Check to change theme color mode to monochrome', 'cbrnetheme'),
+            'tip'          => esc_attr__('Change theme color mode', 'cbrnetheme')
             )
     );
     register_setting(
@@ -65,17 +65,42 @@ function cbrne_custom_options_admin_init()
     );
 
     // alert mode settings
+    // alert bar on/off checkbox
+    add_settings_field(
+        'cbrne_alert_bar_onoff',
+        esc_attr__('Set alert bar on/off', 'cbrnetheme'),
+        'cbrne_custom_settings_checkbox_callback',
+        'cbrne_custom_options_page',
+        'cbrne_custom_options_second_section',
+        array(
+            'type'         => 'checkbox',
+            'option_group' => 'cbrne_custom_options_page',
+            'name'         => 'cbrne_alert_bar_onoff',
+            'label_for'    => 'cbrne_alert_bar_onoff',
+            'value'        => empty(get_option('cbrne_alert_bar_onoff')) ? 0 : get_option('cbrne_alert_bar_onoff'),
+            'description'  => esc_attr__('Check to turn on/off the bar', 'cbrnetheme'),
+            'tip'          => esc_attr__('Alert bar on/off', 'cbrnetheme')
+            )
+    );
+    register_setting(
+        'cbrne_custom_options_page',
+        'cbrne_alert_bar_onoff',
+        array(
+            'type'  => 'string',
+            'default'   => null
+        )
+    );
     // new section
     add_settings_section(
         'cbrne_custom_options_second_section',
-        esc_attr__('Alert bar options'),
+        esc_attr__('Alert bar options', 'cbrnetheme'),
         'cbrne_alert_bar_options_section_callback',
         'cbrne_custom_options_page'
     );
     // title field
     add_settings_field(
         'cbrne_alert_bar_title',
-        esc_attr__('Define alert bar title'),
+        esc_attr__('Define alert bar title', 'cbrnetheme'),
         'cbrne_custoom_settings_input_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_second_section',
@@ -99,7 +124,7 @@ function cbrne_custom_options_admin_init()
     // subtitle field
     add_settings_field(
         'cbrne_alert_bar_subtitle',
-        esc_attr__('Define alert bar subtitle'),
+        esc_attr__('Define alert bar subtitle', 'cbrnetheme'),
         'cbrne_custoom_settings_input_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_second_section',
@@ -123,7 +148,7 @@ function cbrne_custom_options_admin_init()
     // text area
     add_settings_field(
         'cbrne_alert_bar_message',
-        esc_attr__('Define alert bar message'),
+        esc_attr__('Define alert bar message', 'cbrnetheme'),
         'cbrne_custoom_settings_textarea_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_second_section',
@@ -142,39 +167,39 @@ function cbrne_custom_options_admin_init()
         'cbrne_alert_bar_message',
         array(
             'type' => 'string',
-            'sanitize_callback' => 'sanitize_text_field'
+            'sanitize_callback' => 'wp_kses_post'
         )
     );
-    // alert bar on/off checkbox
+    // button link
     add_settings_field(
-        'cbrne_alert_bar_onoff',
-        esc_attr__('Set alert bar on/off'),
-        'cbrne_custom_settings_checkbox_callback',
+        'cbrne_alert_bar_button_link',
+        esc_attr__('Define alert bar subtitle', 'cbrnetheme'),
+        'cbrne_custoom_settings_input_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_second_section',
         array(
-            'type'         => 'checkbox',
+            'type'         => 'text',
             'option_group' => 'cbrne_custom_options_page',
-            'name'         => 'cbrne_alert_bar_onoff',
-            'label_for'    => 'cbrne_alert_bar_onoff',
-            'value'        => empty(get_option('cbrne_alert_bar_onoff')) ? 0 : get_option('cbrne_alert_bar_onoff'),
-            'description'  => esc_attr__('Check to turn on/off the bar'),
-            'tip'          => esc_attr__('Alert bar on/off')
+            'name'         => 'cbrne_alert_bar_button_link',
+            'label_for'    => 'cbrne_alert_bar_button_link',
+            'description'   => esc_attr__('Please use https protocol if possible', 'cbrnetheme'),
+            'value'        => get_option('cbrne_alert_bar_button_link'),
+            'size'         => 40
             )
     );
     register_setting(
         'cbrne_custom_options_page',
-        'cbrne_alert_bar_onoff',
+        'cbrne_alert_bar_button_link',
         array(
-            'type'  => 'string',
-            'default'   => null
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_url'
         )
     );
     // footer settings
     // new section
     add_settings_section(
         'cbrne_custom_options_third_section',
-        esc_attr__('Footer settings'),
+        esc_attr__('Footer settings', 'cbrnetheme'),
         'cbrne_footer_settings_options_section_callback',
         'cbrne_custom_options_page'
     );
@@ -182,7 +207,7 @@ function cbrne_custom_options_admin_init()
     // cbrne_footer_settings_section_one
     add_settings_field(
         'cbrne_footer_settings_section_one',
-        esc_attr__('Define footer addres field'),
+        esc_attr__('Define footer addres field', 'cbrnetheme'),
         'cbrne_custoom_settings_textarea_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_third_section',
@@ -208,7 +233,7 @@ function cbrne_custom_options_admin_init()
     // cbrne_footer_settings_section_two
     add_settings_field(
         'cbrne_footer_settings_section_two',
-        esc_attr__('Define footer contact field'),
+        esc_attr__('Define footer contact field', 'cbrnetheme'),
         'cbrne_custoom_settings_textarea_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_third_section',
@@ -269,6 +294,9 @@ function cbrne_footer_settings_options_section_callback()
 function cbrne_custoom_settings_input_callback($args)
 {
     $html = '<input  type="' . esc_attr($args['type']) . '" name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" value="' . esc_attr($args['value']) . '" size="' . esc_attr($args['size']) . '" />';
+    if (!empty(esc_attr($args['description']))) {
+        $html .= sprintf('<div class="wndspan">%s</div>', esc_attr($args['description']));
+    }
     echo $html;
 }
 function cbrne_custoom_settings_textarea_callback($args)

@@ -35,9 +35,10 @@ h6 {
   .title-icon{
     margin: 0 1rem;
     img{
-      max-height: 50%;
-      height: 10rem;
+      height: 100%;
+      display: block;
       width: auto;
+      padding: 1rem;
     }
   }
 }

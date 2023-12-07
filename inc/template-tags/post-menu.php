@@ -2,7 +2,7 @@
     // this is to restrict sidebar only to one category
 ?>
 <div id="post-menu" class="post-menu-wrapper">
-    <span>Spis treści</span><button class="accordion-button">&nbsp;</button>
+<span class="post-menu-title"><?=__('Spis treści', 'cbrnetheme');?></span><button class="accordion-button"></button>
     <div id="post-menu-accordion" class="accordion">
         <?php
         // get all H2 elements from content

@@ -145,7 +145,7 @@ function string_to_id($str)
 // remove heading list number if it at the begining
 function string_remove_number($str)
 {
-    $str = preg_replace('/^\d?\.\s?/', '', $str);
+    $str = preg_replace('/^\d*\.\s?/', '', $str);
 
     return $str;
 }

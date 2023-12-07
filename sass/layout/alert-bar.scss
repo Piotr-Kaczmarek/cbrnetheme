@@ -14,9 +14,18 @@
 
 .alert-bar-wrapper{
     padding: var(--padding-container-horizontal) var(--padding-container-vertical);
+    display: flex;
+    flex: 1 0 100%;
+    justify-content: space-between;
+    align-items: flex-end;    
 }
 
 .alert-bar:not(.visible){
-    // stylelint-disable-next-line declaration-no-important
+    // stylelint-disable a11y/display-none, declaration-no-important, plugin/file-max-lines
     display: none;
+}
+
+#alert-button {
+    @include button();
+    background-color: var(--color-main);
 }
