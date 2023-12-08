@@ -59,10 +59,10 @@ namespace Cbrne_Theme;
                     <div class="text"><p><?=sanitize_text_field(get_option('cbrne_alert_bar_message'));?></p></div>
                     <?php
                 }
-            ?>
+                ?>
             </div>
             <div>
-            <?php            
+            <?php
             // hide button if empty
             if (!empty(get_option('cbrne_alert_bar_button_link'))) {
                 ?>

@@ -15,6 +15,10 @@
   --margin-wp-block-image: 4rem;
   --margin-between-paragraphs: 2.7rem;
 
+  // hero banner
+  // stylelint-disable number-max-precision, rem-over-px/rem-over-px
+  --hero-banner-height: 600px;
+
   // Mid-sized screens
   @media (max-width: $width-grid-base + 150px) {
     --padding-container-horizontal: 6.4rem;

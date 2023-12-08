@@ -189,3 +189,15 @@
       opacity: 1;
     }
   }
+
+.page-claim-wrapper{
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding-left: 10vw;
+
+  @media(max-width: $width-max-mobile){
+      background-color: rgba(0, 0, 0, .1);
+  }
+}

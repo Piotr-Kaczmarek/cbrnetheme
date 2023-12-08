@@ -270,7 +270,7 @@ function cbrne_generate_home_page_grid($atts)
             $html .= '</a>';
             // post title
             $html .= sprintf('<div class="post-title" title><a href="%s">', get_permalink());
-            $html .= sprintf('<h3>%s</h3>', get_the_title($loop->post->ID));
+            $html .= sprintf('<h4>%s</h4>', get_the_title($loop->post->ID));
             $html .= '</a></div>';
             // make it a link
             $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> ', get_the_permalink());
@@ -330,12 +330,16 @@ function cbrne_post_page_attrib()
 // function to retrive image tag from ACF image ID
 function cbrne_get_image_tag($id)
 {
+    $image_tag = '';
     // get post page-icon from acf
     $image_obj = wp_get_attachment_image_src($id);
-    $image_tag = '<img src="' .$image_obj[0]. '" ';
-    $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
-    $image_tag .= 'alt="'.get_post_meta($id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $id).'" class="post-icon" wp-image="' . $id . '" />';
-    $image_tag = \wp_filter_content_tags($image_tag);
-
-      return $image_tag;
+    if ($image_obj !== false) {
+        $image_tag = '<img src="' .$image_obj[0]. '" ';
+        if (!preg_match('/.svg/', $image_obj[0])) {
+            $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
+        }
+        $image_tag .= 'alt="'.get_post_meta($id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $id).'" class="post-icon" wp-image="' . $id . '" />';
+        $image_tag = \wp_filter_content_tags($image_tag);
+    }
+    return $image_tag;
 }

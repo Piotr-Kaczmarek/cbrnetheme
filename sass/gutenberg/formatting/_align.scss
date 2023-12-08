@@ -67,13 +67,18 @@
   .hero-image{
     margin: 0;
     background-color: var(--color-white);
+    height: var(--hero-banner-height);    
 
+    .wp-block-cover__image-background, 
+    .wp-post-image{
+      max-width: 250rem;
+      margin: 0 auto;
+    }
     .wp-block-cover__background{
       @media(max-width: $width-max-article){
           // stylelint-disable rem-over-px/rem-over-px, declaration-no-important, plugin/file-max-lines
           // left: calc(100vw - 1440px);
           left: 0;
-          right: -100%;
       }  
     }
   }

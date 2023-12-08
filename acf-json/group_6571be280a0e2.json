@@ -5,7 +5,7 @@
         {
             "key": "field_6571be28a8828",
             "label": "Tekst na górnym banerze (albo inna grafika)",
-            "name": "Page Claim",
+            "name": "page-claim",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -53,5 +53,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701953544
+    "modified": 1701964736
 }
