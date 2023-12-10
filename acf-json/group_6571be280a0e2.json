@@ -1,6 +1,6 @@
 {
     "key": "group_6571be280a0e2",
-    "title": "Top banner Claim",
+    "title": "Claim na głównym banerze",
     "fields": [
         {
             "key": "field_6571be28a8828",
@@ -53,5 +53,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701964736
+    "modified": 1702045571
 }

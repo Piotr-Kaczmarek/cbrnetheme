@@ -328,11 +328,11 @@ function cbrne_post_page_attrib()
 }
 
 // function to retrive image tag from ACF image ID
-function cbrne_get_image_tag($id)
+function cbrne_get_image_tag($id, $size = 'full')
 {
     $image_tag = '';
     // get post page-icon from acf
-    $image_obj = wp_get_attachment_image_src($id);
+    $image_obj = wp_get_attachment_image_src($id, $size);
     if ($image_obj !== false) {
         $image_tag = '<img src="' .$image_obj[0]. '" ';
         if (!preg_match('/.svg/', $image_obj[0])) {

@@ -21,11 +21,30 @@ $thumbnail = wp_get_attachment_url(get_post_thumbnail_id()) ?: THEME_SETTINGS['d
 
 get_header(); ?>
 
-<main class="site-main">
-  <?php
-    the_content();
-    air_edit_link();
-    ?>
+<main class="site-main page">
+  <section class="block block-page">
+      <article class="article-content <?php echo (has_post_thumbnail()) ? 'has-hero ' : '';?><?php echo (!empty(get_field('page-claim'))) ? 'has-slider ' : '';?>">
+          <?php
+            get_template_part('template-parts/header/page-claim');
+            if (has_post_thumbnail()) {
+                ?>
+              <div class="hero-image wp-block-cover alignfull">
+                <span aria-hidden="true" class="wp-block-cover__background full-opacity">
+                <?php
+                  //add featured image
+                    
+                        the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
+
+                ?>      
+                  </span>
+              </div>      
+                <?php
+            }
+            the_content();
+            //air_edit_link();
+            ?>
+      </article>
+  </section>
 </main>
 
 <?php get_footer();

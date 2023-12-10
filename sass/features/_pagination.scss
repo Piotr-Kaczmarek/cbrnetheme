@@ -54,7 +54,7 @@
     border-top-right-radius: 0;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: var(--hero-banner-height)) {
     height: 2.6rem;
     width: 2.6rem;
   }
@@ -80,7 +80,7 @@ a.page-numbers:focus {
   padding-right: 2rem;
   width: auto;
 
-  @media (max-width: 600px) {
+  @media (max-width: var(--hero-banner-height)) {
     padding-left: 1rem;
     padding-right: 1rem;
   }

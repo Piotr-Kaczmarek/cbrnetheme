@@ -27,5 +27,6 @@
 
 #alert-button {
     @include button();
-    background-color: var(--color-main);
+    color: var(--color-white);
+    border-color: var(--color-white);
 }

@@ -20,7 +20,7 @@ in_category('zagrozenia') ? $use_menu = true : $use_menu = false;
 
 ?>
 
-<main class="site-main">
+<main class="site-main single">
 <?php
 if (has_post_thumbnail()) {
     ?>
@@ -28,17 +28,22 @@ if (has_post_thumbnail()) {
      <span aria-hidden="true" class="wp-block-cover__background full-opacity">
      <?php
       //add featured image
-        
-            the_post_thumbnail('', array( 'class' => 'featured wp-block-cover__image-background' ));
+
+        $hero_img_options = array( 'class' => 'featured wp-block-cover__image-background' );
+        if (!empty(get_field('mobile-hero-image'))) {
+            $hero_img_options['class'] .= ' hide-on-mobile';
+        }
+        the_post_thumbnail('', $hero_img_options);
+
+            // mobile hero image from ACF
+           
+        if (!empty(get_field('mobile-hero-image'))) {
+              printf('<span aria-hidden="true" class="mobile-hero-wrapper full-opacity hide-on-desktop">%s</span>', cbrne_get_image_tag(get_field('mobile-hero-image')));
+        }
 
         ?>      
       </span>
-      <?php
-        
-        if (!empty(get_field('page-claim'))) {
-            printf('<span aria-hidden="true" class="page-claim-wrapper full-opacity">%s</span>', cbrne_get_image_tag(get_field('page-claim')));
-        }
-        ?>      
+      <?php get_template_part('template-parts/header/page-claim'); ?>
   </div>      
     <?php
 }
@@ -79,12 +84,12 @@ if (has_post_thumbnail()) {
         wp_link_pages(array( 'before' => '<div class="page-links">' . esc_html__('Pages:', 'cbrnetheme'), 'after' => '</div>' ));
 
         // entry_footer(); // remove categories, tags and commentary
-
+        /*
         if (get_edit_post_link()) {
             edit_post_link(sprintf(wp_kses(__('Edit <span class="screen-reader-text">%s</span>', 'cbrnetheme'), [ 'span' => [ 'class' => [] ] ]), get_the_title()), '<p class="edit-link">', '</p>');
         }
-
-        the_post_navigation();
+        */
+        //the_post_navigation();
 
         // If comments are open or we have at least one comment, load up the comment template.
         if (comments_open() || get_comments_number()) {

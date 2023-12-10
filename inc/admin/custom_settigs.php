@@ -173,7 +173,7 @@ function cbrne_custom_options_admin_init()
     // button link
     add_settings_field(
         'cbrne_alert_bar_button_link',
-        esc_attr__('Define alert bar subtitle', 'cbrnetheme'),
+        esc_attr__('Define alert bar button link', 'cbrnetheme'),
         'cbrne_custoom_settings_input_callback',
         'cbrne_custom_options_page',
         'cbrne_custom_options_second_section',
@@ -193,6 +193,31 @@ function cbrne_custom_options_admin_init()
         array(
             'type' => 'string',
             'sanitize_callback' => 'sanitize_url'
+        )
+    );
+    // button text
+    add_settings_field(
+        'cbrne_alert_bar_button_text',
+        esc_attr__('Define alert bar button text', 'cbrnetheme'),
+        'cbrne_custoom_settings_input_callback',
+        'cbrne_custom_options_page',
+        'cbrne_custom_options_second_section',
+        array(
+            'type'         => 'text',
+            'option_group' => 'cbrne_custom_options_page',
+            'name'         => 'cbrne_alert_bar_button_text',
+            'label_for'    => 'cbrne_alert_bar_button_text',
+            'value'        => get_option('cbrne_alert_bar_button_text'),
+            'placeholder'  => __('Read more...'),
+            'size'         => 40
+            )
+    );
+    register_setting(
+        'cbrne_custom_options_page',
+        'cbrne_alert_bar_button_text',
+        array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field'
         )
     );
     // footer settings
@@ -293,7 +318,7 @@ function cbrne_footer_settings_options_section_callback()
 
 function cbrne_custoom_settings_input_callback($args)
 {
-    $html = '<input  type="' . esc_attr($args['type']) . '" name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" value="' . esc_attr($args['value']) . '" size="' . esc_attr($args['size']) . '" />';
+    $html = '<input  type="' . esc_attr($args['type']) . '" name="' . esc_attr($args['name']) . '" id="' . esc_attr($args['name']) . '" value="' . esc_attr($args['value']) . '" size="' . esc_attr($args['size']) . '" placeholder="' . esc_attr($args['placeholder']) . '"/>';
     if (!empty(esc_attr($args['description']))) {
         $html .= sprintf('<div class="wndspan">%s</div>', esc_attr($args['description']));
     }

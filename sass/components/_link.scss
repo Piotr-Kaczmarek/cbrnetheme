@@ -6,8 +6,9 @@
   // for pages and articles
   text-decoration: underline;
   text-decoration-color: var(--color-link-text);
-  text-underline-offset: .6rem;
+  text-underline-offset: 1rem;
   transition: all $transition-duration;
+  text-decoration-thickness: from-font;
 
   &:hover,
   &:focus {

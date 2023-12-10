@@ -85,6 +85,11 @@ h4, h5{
   .article-content{
     padding-top: var(--padding-block);
   }
+
+  .article-content.has-slider, .article-content.has-hero{
+    padding-top: 0;
+  } 
+
   .article-content .alignfull, .editor-styles-wrapper .alignfull, .site-main .alignfull{
     @media (min-width: $width-max-article + 40px){
       margin-top: 0;

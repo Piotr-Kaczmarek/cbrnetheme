@@ -21,7 +21,7 @@
     padding-left: var(--padding-container-horizontal);
     padding-right: var(--padding-container-horizontal);
 
-    &.alignfull {
+    &.alignfull:not(.glide) {
       padding-left: var(--padding-container-horizontal);
       padding-right: var(--padding-container-horizontal);
       width: calc(100% - calc(var(--padding-container-horizontal) * 2));
@@ -33,8 +33,19 @@
   .hero-image{
     &.alignfull{        
       margin-top: 0;
-      margin-bottom: 0;
+      margin-bottom: var(--padding-block);
       min-height: 35vh;
     }
   } 
+}
+
+.post-navigation{
+  border-top: 1px solid;
+  padding: 4rem 0 0;
+
+  .nav-links{
+    text-transform: uppercase;
+    font-size: var(--font-size-h4);
+    font-weight: 700;
+  }
 }

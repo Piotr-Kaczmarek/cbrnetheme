@@ -74,6 +74,17 @@
       max-width: 250rem;
       margin: 0 auto;
     }
+
+    .mobile-hero-wrapper{
+      display: block;
+      position: relative;
+      height: 100%;
+
+      img{
+        max-height: 100%;
+        width: auto;
+      }
+    }
     .wp-block-cover__background{
       @media(max-width: $width-max-article){
           // stylelint-disable rem-over-px/rem-over-px, declaration-no-important, plugin/file-max-lines
@@ -81,5 +92,9 @@
           left: 0;
       }  
     }
+  }
+
+  .glide {
+    margin-top: 0;
   }
 }
