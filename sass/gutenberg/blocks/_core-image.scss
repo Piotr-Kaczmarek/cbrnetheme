@@ -64,6 +64,11 @@
 }
 
 .wp-block-cover {
-      color: var(--color-paragraph);
+    color: var(--color-paragraph);
+    padding: 0;
 
+    p, ul {
+      max-width: 100%;
+      width: 100%;
+    }
 }

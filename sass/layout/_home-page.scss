@@ -14,7 +14,13 @@
       margin-top: 0;
       gap: 0;  
     }
-  
+
+    &.wp-block-columns {
+
+      @media (max-width: $width-max-mobile){
+        flex-flow: column nowrap;
+      }
+    }
     .wp-block-column{
         display: flex;
         flex-flow: column wrap;
@@ -39,6 +45,10 @@
         width: auto;
         height: auto;
         min-height: 1rem;
+    }
+
+    ul{
+      padding-left: 0;
     }
 }
   
