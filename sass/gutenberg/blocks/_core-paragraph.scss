@@ -21,3 +21,9 @@
     width: calc(100% - calc(var(--padding-container-horizontal) * 2));
   }
 }
+
+.wp-block-themeisle-blocks-accordion-item__content {
+  p {
+    margin-top: 0;
+  }
+}

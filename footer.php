@@ -47,7 +47,7 @@ namespace Cbrne_Theme;
       </div>
   </div><!-- sub section end -->
   <div class="site-info">
-      <div id="ng-logo" style="position: relative; top: 1em;">
+      <div id="ng-logo">
         <?php include get_theme_file_path('svg/Norway_grants.svg'); ?>
       </div>  
       <div id="footer-logo">

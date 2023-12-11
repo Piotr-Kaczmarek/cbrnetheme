@@ -50,6 +50,24 @@
     ul{
       padding-left: 0;
     }
+
+    h4 {
+      margin-bottom: calc(var(--margin-between-paragraphs) / 2);
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    h4 > a{
+      color: var(--color-red);
+      text-decoration: none;    
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
 }
   
 .half-screen-columns:nth-of-type(2n+1){
