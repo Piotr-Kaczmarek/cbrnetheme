@@ -63,8 +63,7 @@
   }
 }
 
-.site-main{
-  .hero-image{
+.site-main .hero-image{
     margin: 0;
     background-color: var(--color-white);
     height: var(--hero-banner-height);    
@@ -94,6 +93,7 @@
     }
   }
 
+.site-main{
   .glide {
     margin-top: 0;
   }
