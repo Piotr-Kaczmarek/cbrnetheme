@@ -25,6 +25,7 @@
       padding-left: var(--padding-container-horizontal);
       padding-right: var(--padding-container-horizontal);
       width: calc(100% - calc(var(--padding-container-horizontal) * 2));
+      margin-bottom: calc(var(--padding-block)  / 2);
     }
   }  
 }
