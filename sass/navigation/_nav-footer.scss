@@ -29,12 +29,24 @@
       margin-bottom: 2rem;
 
       li{
-        position: relative;
+        position: relative;      
       }
 
       a {
         text-transform: none;
         color: var(--color-paragraph);
+        display: flex;
+        padding: var(--padding-main-level-vertical) var(--padding-main-level-horizontal);
+        
+        @media (max-width: $width-max-mobile - 1px){
+          padding: 1rem 2rem 1rem 0;
+        }          
+      }
+      
+      li svg {
+        @media (max-width: $width-max-mobile - 1px){
+          top: 1.5rem;
+        }  
       }
 
       button{

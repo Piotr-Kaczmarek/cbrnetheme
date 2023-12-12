@@ -46,7 +46,7 @@
   .nav-primary {
     display: flex;
     flex-flow: column;
-    padding: 0 var(--padding-container-horizontal);    
+    padding: 0 calc(var(--padding-container-horizontal) / 2) 0 var(--padding-container-horizontal);    
     max-width: 1440px;
     margin: 0 auto;
   }

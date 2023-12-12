@@ -55,7 +55,8 @@
       background-color: var(--color-background-nav-mobile-header);
       align-self: stretch;
       flex-basis: 10rem;
-      align-items: center;      
+      align-items: center;     
+      flex-grow: 0; 
     }
     .site-title{
         svg{
