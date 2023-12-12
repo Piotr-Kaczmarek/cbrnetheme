@@ -7,7 +7,7 @@
   // Site-header and general mobile navigation elements
   --color-background-nav-mobile-header: var(--color-main);
   --color-background-nav-mobile-header-active: var(--color-main);
-  --width-navigation: min(40rem, 100vw);
+  --width-navigation: min(30rem, 100vw);
 
   // Affecting to both main and sub-levels
   --color-background-menu-items: var(--color-main);
@@ -238,9 +238,9 @@
   }
 
   .language-switcher{
-    z-index: 6;
+    z-index: 9;
     position: absolute;
-    top: 90vh;
+    top: 70vh;
     padding: 0;
     height: auto; 
     ul{
@@ -248,11 +248,12 @@
     }
     .menu-items-language{
       display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
 
       & > li > a{
-        border-top: none;
+        //border-top: none;
+        border-top: 1px solid var(--color-separator-nav-mobile);
       }
     }
   }

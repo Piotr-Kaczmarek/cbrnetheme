@@ -9,7 +9,7 @@ namespace Cbrne_Theme;
 
 ?>
 
-<div class="language-switcher nav-menu menu-items-wrapper">
+<div id="language-switcher" class="language-switcher nav-menu menu-items-wrapper">
 
 <?php
 if (function_exists('the_msls')) {

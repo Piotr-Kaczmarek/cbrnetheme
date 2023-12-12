@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cbrnetheme\n"
+"POT-Creation-Date: 2023-12-11 22:24+0100\n"
+"PO-Revision-Date: 2023-12-11 22:33+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.1\n"
+"X-Poedit-Basepath: ../inc/admin\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__\n"
+"X-Poedit-SearchPath-0: custom_settigs.php\n"
+
+#: custom_settigs.php:6 custom_settigs.php:14
+msgid "Custom Options"
+msgstr "Dodatkowe opcje"
+
+#: custom_settigs.php:7
+msgid "Custom Options Page"
+msgstr "Strona dodatkowych opcji"
+
+#: custom_settigs.php:15
+msgid "Use this to change settings on page"
+msgstr "Tutaj zmienisz ustawienia stron"
+
+#: custom_settigs.php:38
+msgid "Theme colors"
+msgstr "Kolory tematu"
+
+#: custom_settigs.php:44 custom_settigs.php:55
+msgid "Change theme color mode"
+msgstr "Zmień tryb kolorów strony"
+
+#: custom_settigs.php:54
+msgid "Check to change theme color mode to monochrome"
+msgstr "Ustaw, żeby zmienić tryb kolorów na czarn-obiały"
+
+#: custom_settigs.php:71
+msgid "Set alert bar on/off"
+msgstr "Włącz/wyłącz pasek alertów"
+
+#: custom_settigs.php:81
+msgid "Check to turn on/off the bar"
+msgstr "Ustaw, żeby włączyć pasek alertów"
+
+#: custom_settigs.php:82
+msgid "Alert bar on/off"
+msgstr "Włącz/wyłącz pasek alertów"
+
+#: custom_settigs.php:96
+msgid "Alert bar options"
+msgstr "Opcje paska alertów"
+
+#: custom_settigs.php:103
+msgid "Define alert bar title"
+msgstr "Ustaw tytuł na pasku alertów"
+
+#: custom_settigs.php:127
+msgid "Define alert bar subtitle"
+msgstr "Ustaw podtytuł na pasku alertów"
+
+#: custom_settigs.php:151
+msgid "Define alert bar message"
+msgstr "Ustaw tekst na pasku alertów"
+
+#: custom_settigs.php:176
+msgid "Define alert bar button link"
+msgstr "Ustaw odnośnik przycisku na pasku alertów"
+
+#: custom_settigs.php:185
+msgid "Please use https protocol if possible"
+msgstr "Proszę użyć przedrostka https://"
+
+#: custom_settigs.php:201
+msgid "Define alert bar button text"
+msgstr "Ustaw tekst na przycisku"
+
+#: custom_settigs.php:211
+msgid "Read more..."
+msgstr "Więcej..."
+
+#: custom_settigs.php:227
+msgid "Footer settings"
+msgstr "Ustawienia stopki"
+
+#: custom_settigs.php:235
+msgid "Define footer addres field"
+msgstr "Ustaw zawartośc pola adresu w stopce"
+
+#: custom_settigs.php:261
+msgid "Define footer contact field"
+msgstr "Ustaw zawartość pola kontaktu w stopce"

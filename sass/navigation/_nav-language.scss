@@ -3,11 +3,20 @@
 .language-switcher{
     .menu-items{
         gap: 1rem;
+        @media screen and (max-width: $width-max-mobile - 1px) {
+            gap: 0;            
+        }        
     }
     .menu-item{
         padding: 0;
         &:not(:last-child)::after{
             content: " |";
+        }
+
+        &::after{
+            @media screen and (max-width: $width-max-mobile - 1px) {
+                display: none;
+            }
         }
     }
 }

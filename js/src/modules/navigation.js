@@ -127,6 +127,14 @@ const navMobile = () => {
         menuItem.addEventListener('keydown', a11yFocusTrap);
       });
     }
+    // set position of language menu
+    const langSwitcher = document.getElementById('language-switcher');
+    let mainMenuBottom = document.getElementById('main-menu').getBoundingClientRect().bottom;
+    langSwitcher.style.setProperty('top', mainMenuBottom+'px', 'important');
+    document.getElementById('main-menu').onclick = () => {
+      mainMenuBottom = document.getElementById('main-menu').getBoundingClientRect().bottom;
+      langSwitcher.style.setProperty('top', mainMenuBottom+'px', 'important');
+    };
   }
 
   // When clicking #nav-toggle, add .js-nav-active body class

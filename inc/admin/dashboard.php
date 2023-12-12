@@ -45,6 +45,7 @@ function air_helper_clear_admin_dashboard()
             'nex_forms_widget', // nex forms plugin
             'yith_dashboard_products_news', // all YITH plugins
             'yith_dashboard_blog_news', // all YITH plugins
+            'themeisle', // Otter Blocks from Themeisle
         ],
         'side'      => [
             'dashboard_quick_press',

@@ -67,6 +67,8 @@
     margin: 0;
     background-color: var(--color-white);
     height: var(--hero-banner-height);    
+    max-height: 100vw;
+    min-height: 33vh;
 
     .wp-block-cover__image-background, 
     .wp-post-image{
