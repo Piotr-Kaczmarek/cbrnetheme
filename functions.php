@@ -338,7 +338,8 @@ function cbrne_get_image_tag($id, $size = 'full')
         if (!preg_match('/.svg/', $image_obj[0])) {
             $image_tag .= 'width="'.$image_obj[1].'" height="'.$image_obj[1].'" ';
         }
-        $image_tag .= 'alt="'.get_post_meta($id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $id).'" class="post-icon" wp-image="' . $id . '" />';
+        $image_description = !empty(get_post_field('post_content', $id)) ? get_post_field('post_content', $id) : get_post_field('post_title', $id);
+        $image_tag .= 'alt="'.get_post_meta($id, '_wp_attachment_image_alt', true).'" title="'.get_post_field('post_title', $id).'" class="post-icon" wp-image="' . $id . '" aria-label="' . $image_description . '"/>';
         $image_tag = \wp_filter_content_tags($image_tag);
     }
     return $image_tag;
