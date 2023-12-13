@@ -85,3 +85,9 @@
     padding-bottom: 0;
   }
 }  
+
+.site-main .block-page .article-content .wp-block-eedee-block-gutenslider.alignfull{
+  background-color: var(--color-heading-background);  
+  margin-top: calc(var(--padding-block) * -1);
+  margin-bottom: 0;
+}

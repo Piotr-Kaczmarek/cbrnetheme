@@ -2,7 +2,7 @@
     // this is to restrict sidebar only to one category
 ?>
 <div id="post-menu" class="post-menu-wrapper">
-<span class="post-menu-title"><?=__('Table of Contents');?></span><button class="accordion-button"></button>
+<span class="post-menu-title"><?=__('Table of Contents');?></span><button class="accordion-button" aria-label="Open article menu" tabindex="-1"></button>
     <div id="post-menu-accordion" class="accordion">
         <?php
         // get all H2 elements from content
