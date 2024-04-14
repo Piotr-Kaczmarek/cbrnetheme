@@ -272,12 +272,13 @@ function cbrne_generate_home_page_grid($atts)
             $html .= sprintf('<div class="post-title" title><a href="%s">', get_permalink());
             $html .= sprintf('<h4>%s</h4>', get_the_title($loop->post->ID));
             $html .= '</a></div>';
-            // make it a link
-            $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> ', get_the_permalink());
             // excerpt
             $html .= sprintf('<div class="post-excerpt" title>%s', cbrne_limit_excerpt_words(get_the_excerpt(), $atts['text_length']));
-            //$html .= \apply_filters('excerpt_more', 'Read More');
-            $html .= '</a></div>';
+            // make it a link
+            $html .= sprintf('<a class="read-more" href="%s" rel="nofollow"> ', get_the_permalink());
+            $html .= \apply_filters('excerpt_more', 'Read More');
+            $html .= '</a>';
+            $html .= '</div>';
 
             $html .= '</div><!-- one post -->';
         }

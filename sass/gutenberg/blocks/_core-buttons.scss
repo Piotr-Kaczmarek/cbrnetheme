@@ -1,3 +1,21 @@
 .wp-block-button__link {
   @include button();
 }
+
+.swiper-slide {
+  .wp-block-button__link {
+    max-width: 100%;
+  }
+}
+
+.slider-button {
+  position: relative;
+  bottom: 6%;
+  .wp-block-button__link {
+    max-width: 100%;
+  }  
+}
+
+.slider-button > .wp-block-button.has-custom-width.wp-block-button__width-100 {
+  max-width: 800px;
+}

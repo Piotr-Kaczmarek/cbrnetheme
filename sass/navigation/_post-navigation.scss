@@ -16,9 +16,12 @@
         text-transform: uppercase;
         text-align: center;
     }
-
+    ul > li {
+        margin-bottom: .6rem;
+    }
     ul > li > a{
         text-decoration-color: var(--color-light-grey);
+        font-size: var(--font-size-captions);
     }    
 }
 

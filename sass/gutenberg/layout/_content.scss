@@ -32,6 +32,11 @@
 
 .article-content{
   .hero-image{
+
+    @media (max-width: $width-max-mobile) {
+      display: none;
+    }
+
     &.alignfull{        
       margin-top: 0;
       margin-bottom: var(--padding-block);

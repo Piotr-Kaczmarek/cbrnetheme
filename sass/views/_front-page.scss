@@ -43,6 +43,11 @@
                     text-decoration: underline;
                 }
             }
+        
+        .read-more{
+            padding: 0rem .3rem;
+            border-bottom: 1px solid var(--color-paragraph);
+        }
 
         @media(max-width: $width-max-mobile){
             flex-basis: 48%;

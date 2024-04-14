@@ -23,3 +23,18 @@
   padding-right: 0;
   width: 100%;
 }
+
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  padding-top: 56.25%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

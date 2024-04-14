@@ -130,10 +130,10 @@ const navMobile = () => {
     // set position of language menu
     const langSwitcher = document.getElementById('language-switcher');
     let mainMenuBottom = document.getElementById('main-menu').getBoundingClientRect().bottom;
-    langSwitcher.style.setProperty('top', mainMenuBottom+'px', 'important');
+    langSwitcher.style.setProperty('top', mainMenuBottom +'px', 'important');
     document.getElementById('main-menu').onclick = () => {
       mainMenuBottom = document.getElementById('main-menu').getBoundingClientRect().bottom;
-      langSwitcher.style.setProperty('top', mainMenuBottom+'px', 'important');
+      langSwitcher.style.setProperty('top', mainMenuBottom +'px', 'important');
     };
   }
 
